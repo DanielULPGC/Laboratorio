@@ -1,0 +1,11 @@
+ID,Componente,Observado en la imagen aportada,Tratamiento en MZ-02.3,Grado de certeza,Limitación principal,Prioridad
+R01,Cubierta blanca central,"Silueta alta apuntada y superficies curvas","Superficie triangular curva por segmentos",Observado parcialmente,"Faltan alzado, planta y escala",Muy alta
+R02,Ala izquierda curvada,"Gran elemento inclinado en el lado izquierdo","Faja de cubierta paramétrica",Observado parcialmente,"Se desconocen dimensiones y estructura",Alta
+R03,Torre secundaria,"Torre estrecha rojiza sobre base amarillenta","Volúmenes cilíndricos/rectangulares y estrías",Observado parcialmente,"Se desconoce sección y composición exactas",Alta
+R04,Piscina frontal,"Depósito azul de contorno irregular en primer plano","Elipse esquemática con reborde",Observado parcialmente,"Planta y posición sin geometría comprobada",Muy alta
+R05,Perforaciones de fachada,"Numerosos pequeños orificios circulares","Trama de perforaciones simplificadas",Observado parcialmente,"Número y posiciones no medidos",Media
+R06,Puerta del edificio,"Hueco oscuro arqueado y vano inferior","Puerta y ventana como figuras simplificadas",Observado parcialmente,"No existe documentación geométrica",Media
+R07,Piscina de salida,No identificable de modo inequívoco en este fotograma,"Pozo más compuertas y plataforma",Hipótesis del prototipo,"Debe contrastarse con fotogramas de lanzamiento",Crítica
+R08,Robot y elevador,No visible en el fotograma aportado,"Robot simplificado más plataforma",Hipótesis didáctica,"Geometría y mecanismo no canónicos",Crítica
+R09,Entorno vegetal,"Zonas de césped y vegetación de fondo","Árboles estilizados y plataforma verde",Observado parcialmente,"Solo relaciones generales",Baja
+R10,Física de ascenso,No observable,"Modelo ideal de fuerza neta y frenado",Ley física aplicada a escenario hipotético,"No representa la ingeniería de la serie",Crítica

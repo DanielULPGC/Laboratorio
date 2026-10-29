@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MZ-02.3 · Cuaderno interactivo de mecánica</title>
+<style>
+:root{font-family:Georgia,'Times New Roman',serif;color:#263f4d;background:#e8dfcf;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,select,textarea,input{font:inherit}button{font-family:system-ui,sans-serif;font-weight:650;padding:9px 13px;border:0;border-radius:6px;background:#294d66;color:#fff;cursor:pointer}button.secondary{background:#e0d3bc;color:#233d51;border:1px solid #b7a789}button:disabled{opacity:.45;cursor:not-allowed}button:focus-visible,textarea:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #c16b25;outline-offset:3px}h1{font-size:clamp(1.45rem,3vw,2.15rem);margin:3px 0 5px}h2{font-size:1.2rem;margin:0 0 9px}p{line-height:1.47;margin:8px 0 14px}.shell{max-width:1460px;margin:auto;padding:12px 17px 28px}.top{display:flex;justify-content:space-between;gap:20px;align-items:center;border-bottom:2px solid #b1a184;padding-bottom:12px}.eyebrow{font:700 .74rem system-ui;letter-spacing:.11em;color:#687079}.sub{font:.83rem system-ui;color:#5b6970}.stamp{flex:0 0 110px;text-align:center;border:3px double #bc8245;border-radius:50%;transform:rotate(-11deg);padding:19px 5px;color:#8b653f;font:700 .74rem system-ui;opacity:.65}.stamp.earned{background:#f2dca9;opacity:1}.modes{display:flex;gap:8px;flex-wrap:wrap;padding:13px 0}.modes [aria-pressed=true]{background:#203c4f;color:#fff;box-shadow:0 0 0 2px #bb9563 inset}.status{font:.76rem/1.5 system-ui;display:flex;flex-wrap:wrap;gap:5px 17px;padding:8px 9px;margin-bottom:9px;border:1px solid #cdbd9d;border-radius:7px;background:#f8f1e2}.page{background:#fbf5e8;box-shadow:0 12px 35px #55472d23;border:1px solid #c8bb9e;border-radius:12px;overflow:hidden}.scene{height:clamp(315px,51vh,550px);position:relative;background:#e8e1d0}.scene canvas{display:block;touch-action:none}.three{position:absolute;inset:0}.three canvas{width:100%;height:100%;display:block}.scene-note{position:absolute;top:11px;left:12px;z-index:2;max-width:285px;padding:9px;background:#fffaf0e8;border:1px solid #d2bea0;border-radius:6px;font:.73rem/1.5 system-ui;pointer-events:none}.camera{position:absolute;z-index:4;right:12px;bottom:12px;display:flex;gap:4px}.camera button{padding:7px 9px}.bottom{padding:18px;display:grid;grid-template-columns:minmax(260px,1fr) minmax(300px,1.6fr);gap:20px}.predict{border:1px solid #c5ae85;background:#f6ecda;padding:13px;border-radius:8px}.predict label{display:block;margin:0 0 8px;font-size:.9rem}.predict select{width:100%;background:white;padding:8px;border-radius:5px;border:1px solid #96866e;margin-bottom:9px}.controls{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.slider{display:block;margin:9px 0;font:.89rem system-ui}.slider input{width:100%;accent-color:#245875}#feedback{margin:10px 0;min-height:27px;border-left:3px solid #ad814a;padding:7px 9px;font:.88rem/1.45 system-ui;background:#f0e7d4}.results{padding:10px 18px 18px;border-top:1px solid #d8cab3}table{border-collapse:collapse;width:100%;font:.82rem/1.45 system-ui}th,td{padding:7px;border-bottom:1px solid #d4c6af;text-align:left}th{background:#e9dfcb}.flap{background:#f0e3cf;border-top:3px dashed #aa8756;padding:18px}.flap pre{white-space:pre-wrap;overflow:auto;padding:12px;background:#263f4b;color:#f2e7cc;border-radius:6px;font:.81rem/1.5 monospace}.flap textarea{display:block;width:100%;min-height:95px;padding:10px;border:1px solid #bba889;border-radius:5px;background:white;margin:10px 0}.accessible{padding:16px 20px;font:.88rem/1.5 system-ui;border-top:1px solid #c9b89a}.accessible summary{cursor:pointer;font-weight:700}.ambient{display:grid;grid-template-columns:minmax(220px,1fr) minmax(240px,1fr);gap:16px;padding:16px 19px;background:#f4ecd9;border-top:1px solid #c9b89a}.ambient h2{margin-bottom:8px}.scene-options{display:flex;gap:10px;align-items:end;flex-wrap:wrap}.scene-options label{display:grid;gap:4px;font:.8rem system-ui}.scene-options select{background:#fff;border:1px solid #aaa;padding:7px;border-radius:5px}.agent-status{font:.82rem/1.55 system-ui;margin-top:10px}.events{font:.8rem/1.5 system-ui;max-height:145px;overflow-y:auto;margin:0;padding-left:25px}.events li{margin:2px 0}.foot{font:.77rem/1.45 system-ui;color:#5e645f;padding:10px 0}.pill{display:inline-block;background:#dcd2bd;color:#314958;padding:3px 7px;border-radius:4px;font:700 .7rem system-ui}
+@media(max-width:760px){.ambient{grid-template-columns:1fr}.scene-options{align-items:center}.bottom{grid-template-columns:1fr;padding:13px}.stamp{flex-basis:82px;font-size:.61rem;padding:12px 4px}.shell{padding:8px}.scene{height:385px}.camera{right:6px}.scene-note{max-width:210px}.status{font-size:.7rem}.top{align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation-duration:.001ms!important}}
+.reference-grid{display:grid;grid-template-columns:minmax(250px,1fr) minmax(300px,1.4fr);gap:20px;align-items:start}.reference-grid figure{margin:0}.reference-grid img{display:block;width:100%;height:auto;border-radius:7px;border:1px solid #bca88b}.reference-grid figcaption{font:.78rem/1.4 system-ui;margin-top:5px;color:#57636b}@media(max-width:750px){.reference-grid{grid-template-columns:1fr}}</style></head><body><main class="shell"><header class="top"><div><span class="eyebrow">CUADERNO DE INGENIERÍA · MZ-02.3 · LECCIÓN 1</span><h1>La piscina de lanzamiento de Mazinger Z</h1><div class="sub">Reconstrucción interpretativa · Física idealizada · Escenario ficticio</div></div><div id="stamp" class="stamp" aria-live="polite">SELLO PENDIENTE</div></header>
+<nav class="modes" aria-label="Modalidad de exploración"><button id="bookMode" aria-pressed="true">Libro interactivo</button><button id="cinemaMode" class="secondary" aria-pressed="false">Vista cinematográfica</button><button id="sectionMode" class="secondary" aria-pressed="false">Inspección técnica</button></nav>
+<div class="status" aria-label="Estado del modelo"><span id="step">Etapa: Predecir</span><span id="height">Altura: 0 m</span><span id="acc">Aceleración inicial ideal: —</span><span id="margin">Holgura horizontal: —</span><span id="safety">Comprobación: —</span><span id="engineStatus">Representación: iniciando</span><span id="progress">Evidencias: —</span></div>
+<article class="page"><div class="scene" id="scene" aria-label="Representación visual del pozo, compuertas, elevador y robot, con controles textuales equivalentes"><canvas id="view" role="img" aria-label="Dibujo isométrico de respaldo; la información esencial también aparece debajo, en texto" width="800" height="430"></canvas><div class="three" id="three" hidden></div><div class="scene-note">Maqueta 3D interpretativa · WebGL2 local, si está disponible.<br>Arrastrar: girar · Desplazar rueda: zoom</div><div class="camera" aria-label="Controles de cámara"><button id="left" title="Girar izquierda" aria-label="Girar izquierda">↶</button><button id="right" title="Girar derecha" aria-label="Girar derecha">↷</button><button id="zoomIn" title="Acercar" aria-label="Acercar">+</button><button id="zoomOut" title="Alejar" aria-label="Alejar">−</button></div></div>
+<div class="bottom"><section aria-labelledby="question"><h2 id="question">1. Predecir · ¿Qué cambia al aumentar la masa?</h2><p>Si la fuerza ascendente es constante, ¿qué sucede con la aceleración inicial al aumentar la masa? La piscina y el robot son una recreación, pero las leyes empleadas en el ensayo son reales.</p><div class="predict"><label for="answer">Selecciona tu hipótesis</label><select id="answer"><option value="">Elige una respuesta</option><option value="up">Aumenta la aceleración</option><option value="down">Disminuye la aceleración</option><option value="same">No cambia la aceleración</option></select><button id="predict">Registrar predicción</button></div></section>
+<section aria-labelledby="lab"><h2 id="lab">2–3. Observar y experimentar</h2><label class="slider" for="mass">Masa hipotética: <output id="massVal">20.000</output> kg<input id="mass" type="range" min="10000" max="50000" step="1000" value="20000"></label><label class="slider" for="thrust">Fuerza máxima: <output id="thrustVal">300</output> kN<input id="thrust" type="range" min="100" max="900" step="10" value="300"></label><div class="controls"><button id="observe">Abrir compuertas</button><button id="run">Ensayar ascenso</button><button id="pause" class="secondary">Pausar</button><button id="flapBtn" class="secondary" aria-controls="flap" aria-expanded="false">Levantar solapa</button><button id="reset" class="secondary">Reiniciar</button></div><p id="feedback" role="status" aria-live="polite">Primero, registra una hipótesis.</p></section></div>
+<section class="ambient" aria-label="Entorno simulado y registro de operaciones"><div><h2>Entorno y control del complejo</h2><div class="scene-options"><label for="lightTime">Iluminación<select id="lightTime"><option value="dia">Día</option><option value="atardecer" selected>Atardecer</option><option value="noche">Noche</option></select></label><label for="weather">Meteorología<select id="weather"><option value="seco" selected>Seco</option><option value="lluvia">Lluvia</option></select></label><button id="pixelBtn" class="secondary" aria-pressed="false">Diorama de 64 colores</button></div><div class="agent-status" id="agents" aria-live="off">Operador, supervisor y observador: estados basados en reglas.</div><p class="sub">Las figuras y los agentes son interpretativos; los efectos de agua y lluvia no equivalen a simulación hidráulica. La representación 3D local no utiliza Three.js.</p></div><div><h2>Bitácora de eventos</h2><ol id="events" class="events" aria-label="Eventos de la sesión"></ol><p class="sub">La bitácora documenta la sesión local; no hay registro remoto ni almacenamiento permanente.</p></div></section><section class="results"><h2>Registro de ensayos</h2><p class="sub">Para comparar, realiza dos ensayos con masas diferentes y la misma fuerza máxima.</p><table><thead><tr><th>Ensayo</th><th>Masa (kg)</th><th>Fuerza (kN)</th><th>a inicial (m/s²)</th><th>¿Asciende?</th></tr></thead><tbody id="trials"><tr><td colspan="5">Todavía no hay ensayos registrados.</td></tr></tbody></table></section>
+<section id="flap" class="flap" hidden aria-label="Explicación y evaluación"><h2>4. Levantar solapa · Comprender el mecanismo</h2><p>Segunda ley de Newton, eje vertical: <strong>F − mg = ma</strong>; por tanto, <strong>a = F/m − g</strong>, con <em>g</em> = 9,81 m/s². Si <em>F</em> no supera el peso <em>mg</em>, este modelo no inicia el ascenso.</p><p>El movimiento representado acelera primero y después frena hasta detenerse a 9 m. Se limita la aceleración ascendente a 6 m/s² y el frenado a 3 m/s², por decisión didáctica. No simula hidráulica ni resistencia del material. La comprobación de colisiones utiliza envolventes rectangulares: no equivale a una certificación mecánica.</p><pre>const aInicial = Fmax / masa - 9.81;
+const puedeAscender = aInicial &gt; 0;
+// Las fases de aceleración y frenado se integran por tramos.</pre><label for="justification"><strong>5. Justifica tu conclusión</strong> (al menos 45 caracteres)</label><textarea id="justification" placeholder="Compara dos ensayos con la misma fuerza y explica por qué la aceleración disminuye al aumentar la masa."></textarea><button id="earn">Comprobar requisitos y obtener sello</button><p class="sub">El sello acredita que se ha completado la secuencia y se ha registrado una respuesta; no certifica su calidad conceptual. Esta última requiere evaluación docente.</p></section>
+<details class="accessible"><summary>Versión textual accesible y límites epistemológicos</summary><p>La imagen representa un laboratorio futurista esquemático, una piscina, dos compuertas laterales, un pozo de 12 m aproximados, una plataforma y un robot simplificado. Las compuertas se separan a ambos lados. La ambientación incluye tres figuras con estados prefijados, opciones de iluminación y lluvia ilustrativa y un diorama alternativo de 64 colores. Si la fuerza es suficiente y el hueco está despejado, el elevador asciende hasta 9 m y frena. Los resultados numéricos se presentan de forma textual en la barra de estado y en la tabla.</p><p><strong>Control equivalente:</strong> registrar predicción, abrir compuertas y ensayar mediante botones, sin necesidad de usar la escena. El modo de inspección dibuja envolventes simplificadas, no cortes CAD. Los parámetros y dimensiones son hipotéticos; no son especificaciones del universo de Mazinger Z. La representación principal utiliza WebGL2 sin dependencias de red ni Three.js. Si no existe WebGL2 se ofrece un dibujo isométrico Canvas. La opción de 64 colores también utiliza Canvas. WebGL2 es tridimensional, pero no sustituye la validación pendiente de un motor Three.js ni es un modelo CAD.</p></details></article>
+<details class="accessible" id="references"><summary>Comparación documental: fotograma aportado y criterios de reconstrucción</summary><div class="reference-grid"><figure><img src="referencia_original.jpg" alt="Fotograma aportado: edificio futurista con cubierta blanca curvada, torre rojiza y piscina de forma irregular en primer plano" loading="lazy"><figcaption>Fotograma facilitado como referencia visual; calidad y perspectiva limitadas.</figcaption></figure><div><h2>Matriz de evidencia visual</h2><table><thead><tr><th>Elemento</th><th>Observación</th><th>Estado de MZ-02.3</th></tr></thead><tbody><tr><td>Silueta de cubierta</td><td>Blanca, apuntada y con bordes curvados</td><td>Aproximación geométrica interpretativa</td></tr><tr><td>Torre secundaria</td><td>Rojiza sobre base clara</td><td>Cilindros y estrías simplificados</td></tr><tr><td>Piscina frontal</td><td>Contorno redondeado e irregular</td><td>Óvalo esquemático, sin correspondencia métrica</td></tr><tr><td>Salida del robot</td><td>No se observa en el fotograma aportado</td><td>Mecanismo hipotético, no verificable aquí</td></tr></tbody></table><p>No se infieren las dimensiones reales ni el funcionamiento subterráneo a partir de esta imagen.</p></div></div></details>
+<details class="accessible" id="rubric"><summary>Rúbrica formativa y criterios de aprendizaje</summary><table><thead><tr><th>Criterio</th><th>Inicial</th><th>En desarrollo</th><th>Logrado</th></tr></thead><tbody><tr><td>Predicción</td><td>Sin hipótesis</td><td>Hipótesis sin fundamentación</td><td>Relaciona fuerza y masa con aceleración</td></tr><tr><td>Contraste de ensayos</td><td>Sin datos</td><td>Compara variables no controladas</td><td>Mantiene fuerza y cambia exclusivamente masa</td></tr><tr><td>Explicación</td><td>Reproduce cifras</td><td>Aplica parcialmente F−mg=ma</td><td>Relaciona ecuación, resultados y límites</td></tr><tr><td>Juicio epistémico</td><td>Confunde ficción y física</td><td>Reconoce alguna limitación</td><td>Diferencia modelo, evidencia visual y tecnología ficticia</td></tr></tbody></table><p>El sello de participación no acredita por sí mismo competencia conceptual. La valoración de esta rúbrica requiere revisión humana.</p></details>
+<p class="foot"><span class="pill">MZ-02.3</span> Prototipo WebGL2 local y Canvas alternativo, para análisis didáctico; ninguna cifra permite inferir la viabilidad de un lanzamiento de un robot real ni acredita fidelidad al diseño audiovisual original.</p></main>
+<script>
+/** MZ-02.1: physical model (SI) and deliberately simplified envelope checks. */
+const G=9.81;
+const HEIGHT=9;
+const MODEL={robotHalfX:2.7,robotHalfZ:1.05,shaftHalfX:8.8,shaftHalfZ:6.2,gateHalfWidth:4.15,gateInnerAtRest:.1,gateTravel:8.8,gateYMin:.10,gateYMax:.68,robotBaseBottom:-10.8,robotBaseTop:-4.10,platformBaseY:-11.15};
+function acceleration(massKg,forceN){if(!(massKg>0)||!(forceN>=0))throw Error('Parámetros no válidos');return forceN/massKg-G;}
+function makeTrial(massKg,forceKN){const a=acceleration(massKg,forceKN*1000);return {massKg,forceKN,a,canRise:a>0};}
+/** Bounding envelope check against lateral walls and both sliding gate slabs.
+ * All dimensions are illustrative and expressed in metres. */
+function clearance(opening,lift=0){
+ if(!Number.isFinite(opening)||!Number.isFinite(lift)||opening<0||opening>1||lift<0||lift>HEIGHT)throw Error('Estado fuera de límites');
+ const m=MODEL,rx=m.robotHalfX,rz=m.robotHalfZ;
+ const leftInner=-m.gateInnerAtRest-opening*m.gateTravel;
+ const rightInner=m.gateInnerAtRest+opening*m.gateTravel;
+ const robotTop=m.robotBaseTop+lift, robotBottom=m.robotBaseBottom+lift;
+ const yOverlaps=robotTop>m.gateYMin&&robotBottom<m.gateYMax;
+ const gateOverlap=yOverlaps&&(leftInner>-rx||rightInner<rx);
+ const wallOverlap=(rx>=m.shaftHalfX||rz>=m.shaftHalfZ);
+ const gap=rightInner-leftInner;
+ return {safe:!gateOverlap&&!wallOverlap,gap,marginX:gap/2-rx,marginZ:m.shaftHalfZ-rz,gateOverlap,wallOverlap,verticalCrossing:yOverlaps};
+}
+/** A compact illustrative actuator: accelerate and brake to arrive at rest.
+ * The capped accelerating and braking phases should not be read as a real hydraulic design. */
+function trajectory(massKg,forceKN,height=HEIGHT){
+ const raw=acceleration(massKg,forceKN*1000);
+ if(raw<=0)return {possible:false,raw,tTotal:0,t1:0,t2:0,x:()=>0,v:()=>0,accUp:0,accDown:0};
+ const accUp=Math.min(raw,6),accDown=3;
+ const d1=height*accDown/(accUp+accDown);
+ const t1=Math.sqrt(2*d1/accUp);
+ const vPeak=accUp*t1;
+ const t2=vPeak/accDown;
+ const tTotal=t1+t2;
+ return {possible:true,raw,accUp,accDown,d1,t1,t2,tTotal,vPeak,
+  x(t){const u=Math.max(0,Math.min(t,tTotal));return Math.max(0,Math.min(height,u<=t1?.5*accUp*u*u:d1+vPeak*(u-t1)-.5*accDown*(u-t1)**2));},
+  v(t){const u=Math.max(0,Math.min(t,tTotal));return u>=tTotal?0:u<=t1?accUp*u:vPeak-accDown*(u-t1);}};
+}
+function isValidComparison(trials){if(trials.length<2)return false;for(let i=0;i<trials.length;i++)for(let j=i+1;j<trials.length;j++)if(trials[i].forceKN===trials[j].forceKN&&trials[i].massKg!==trials[j].massKg)return true;return false;}
+function expectedPrediction(){return 'down';}
+
+/** MZ-02.2 — Modelo de entorno y agentes deterministas.
+ * No IA autónoma; sin afirmaciones de hidráulica real ni canon audiovisual.
+ */
+const LIGHT_STATES=['dia','atardecer','noche'];
+const WEATHER_STATES=['seco','lluvia'];
+function agentStatuses(s){
+ const phase=s.phase||'idle';
+ const halted=phase==='blocked';
+ return {
+  operador:halted?'DETENIDO — incidencia':phase==='opening'?'Activando compuertas':phase==='lifting'?'Controlando ascenso':s.observed?'Listo para ensayo':'Esperando predicción',
+  supervisor:halted?'ALERTA — comprobar geometría':s.opening>=.999?'Apertura completada':phase==='opening'?'Verificando desplazamiento':'Comprobación preliminar',
+  observador:(s.trials?.length||0)+' ensayos registrados'
+ };
+}
+function liftInterlock(s,check){
+ if(!s.observed)return {allowed:false,reason:'Falta completar la observación de apertura'};
+ if(s.opening<.999)return {allowed:false,reason:'Compuertas sin apertura completa'};
+ if(s.phase==='opening'||s.phase==='blocked')return {allowed:false,reason:'Secuencia no autorizada por el estado actual'};
+ if(!check.safe)return {allowed:false,reason:'Intersección entre envolventes'};
+ return {allowed:true,reason:'Condiciones geométricas del modelo satisfechas'};
+}
+function rippleRadius(age,velocity=2.4){return Math.max(0,age)*velocity;}
+function rippleOpacity(age,amplitude=1,damping=1.1){return Math.max(0,Math.min(1,amplitude*Math.exp(-damping*Math.max(0,age))));}
+function weatherLabel(w){return w==='lluvia'?'Lluvia (perturbaciones visuales)':'Seco';}
+
+/** Paleta local fija de 64 colores, asignación por distancia euclídea en OKLab.
+ * Uso: versión alternativa en Canvas; no es un posprocesado WebGL. */
+function srgbLinear(x){let c=x/255;return c<=.04045?c/12.92:((c+.055)/1.055)**2.4;}
+function rgbOklab(r,g,b){
+ const R=srgbLinear(r),G=srgbLinear(g),B=srgbLinear(b);
+ const l=Math.cbrt(.4122214708*R+.5363325363*G+.0514459929*B);
+ const m=Math.cbrt(.2119034982*R+.6806995451*G+.1073969566*B);
+ const s=Math.cbrt(.0883024619*R+.2817188376*G+.6299787005*B);
+ return [.2104542553*l+.793617785*m-.0040720468*s,
+  1.9779984951*l-2.428592205*m+.4505937099*s,
+  .0259040371*l+.7827717662*m-.808675766*s];
+}
+// Ocho familias cromáticas y ocho niveles de luminosidad, sin degradados externos.
+// La paleta está diseñada para dibujo técnico: papel, tierra, metal, vegetación y señales.
+function hslRgb(h,s,l){s/=100;l/=100;const k=n=>(n+h/30)%12,a=s*Math.min(l,1-l);const f=n=>l-a*Math.max(-1,Math.min(k(n)-3,9-k(n),1));return [Math.round(f(0)*255),Math.round(f(8)*255),Math.round(f(4)*255)];}
+const FAMILIES=[[35,5],[40,29],[42,52],[12,48],[95,34],[151,32],[190,44],[220,50]];
+const LIGHTNESS=[12,23,34,45,56,67,78,90];
+const PALETTE=FAMILIES.flatMap(([h,s])=>LIGHTNESS.map(l=>hslRgb(h,s,l)));
+function buildOklabLut(){
+ const labs=PALETTE.map(c=>rgbOklab(...c));const lut=new Uint8Array(16*16*16);
+ for(let r=0;r<16;r++)for(let g=0;g<16;g++)for(let b=0;b<16;b++){
+  const v=rgbOklab(r*17,g*17,b*17);let idx=0,dist=Infinity;
+  for(let j=0;j<labs.length;j++){
+   const c=labs[j],d=(v[0]-c[0])**2+(v[1]-c[1])**2+(v[2]-c[2])**2;
+   if(d<dist){dist=d;idx=j;}
+  }
+  lut[r*256+g*16+b]=idx;
+ }
+ return lut;
+}
+function quantizePixels(imageData,lut){
+ const a=imageData.data;
+ for(let i=0;i<a.length;i+=4){if(a[i+3]===0)continue;const idx=lut[(a[i]>>4)*256+(a[i+1]>>4)*16+(a[i+2]>>4)];const col=PALETTE[idx];a[i]=col[0];a[i+1]=col[1];a[i+2]=col[2];}
+ return imageData;
+}
+
+/** MZ-02.3 — geometría WebGL2 offline. Motor GL minimalista, NO Three.js.
+ * Coordenadas, alturas, encuadre y materiales interpretativos; NO reconstrucción canónica.
+ */
+function makeOfflineGL(host, state) {
+  const canvas=document.createElement('canvas');canvas.setAttribute('aria-label','Recreación tridimensional WebGL local de la piscina, el pozo y el laboratorio, modelo interpretativo');
+  canvas.style.cssText='display:block;width:100%;height:100%;touch-action:none';host.append(canvas);
+  const gl=canvas.getContext('webgl2',{antialias:true,alpha:false,depth:true,preserveDrawingBuffer:true});
+  if(!gl){canvas.remove();throw Error('WebGL2 no está disponible');}
+  const vert=`#version 300 es
+precision highp float;
+layout(location=0) in vec3 aPosition;
+layout(location=1) in vec3 aNormal;
+layout(location=2) in vec3 aColor;
+uniform float uAngle; uniform float uZoom; uniform float uAspect;
+uniform vec3 uOffset; uniform float uYTarget;
+out vec3 vColor; out vec3 vNormal; out vec3 vWorld;
+void main(){
+ vec3 p=aPosition+uOffset; float c=cos(uAngle),s=sin(uAngle);
+ float h=p.x*c-p.z*s; float depth=p.x*s+p.z*c;
+ float elev=.58; float screenY=(p.y-uYTarget)*cos(elev)-depth*sin(elev);
+ float cameraDepth=(p.y-uYTarget)*sin(elev)+depth*cos(elev);
+ float halfH=21.0/uZoom;
+ gl_Position=vec4(h/(halfH*uAspect),screenY/halfH,-cameraDepth/66.0,1.0);
+ vWorld=p;vNormal=aNormal;vColor=aColor;
+}`;
+  const frag=`#version 300 es
+precision highp float;
+in vec3 vColor; in vec3 vNormal; in vec3 vWorld;
+uniform float uNight;uniform float uRain;
+out vec4 outColor;
+void main(){
+ vec3 n=normalize(vNormal); float sunlight=max(.0,dot(n,normalize(vec3(-.35,.83,.43))));
+ float lit=.62+.38*sunlight; vec3 col=vColor*lit;
+ col=mix(col,col*vec3(.44,.60,.86)+vec3(.006,.009,.024),uNight*.74);
+ col=mix(col,col*vec3(.81,.88,.91),uRain*.28);
+ outColor=vec4(pow(col,vec3(1.0/1.05)),1.);
+}`;
+  const compile=(kind,src)=>{const s=gl.createShader(kind);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s;};
+  const prog=gl.createProgram();gl.attachShader(prog,compile(gl.VERTEX_SHADER,vert));gl.attachShader(prog,compile(gl.FRAGMENT_SHADER,frag));gl.linkProgram(prog);
+  if(!gl.getProgramParameter(prog,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(prog));gl.useProgram(prog);
+  const loc={angle:gl.getUniformLocation(prog,'uAngle'),zoom:gl.getUniformLocation(prog,'uZoom'),aspect:gl.getUniformLocation(prog,'uAspect'),offset:gl.getUniformLocation(prog,'uOffset'),target:gl.getUniformLocation(prog,'uYTarget'),night:gl.getUniformLocation(prog,'uNight'),rain:gl.getUniformLocation(prog,'uRain')};
+  gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.disable(gl.CULL_FACE);
+  const rgb=h=>{h=h.replace('#','');return [0,2,4].map(i=>parseInt(h.slice(i,i+2),16)/255)};
+  const vec=(a,b)=>a.map((v,i)=>v-b[i]);
+  class Geometry {
+    constructor(){this.vertices=[];this.normals=[];this.colors=[];}
+    tri(a,b,c,color){const u=vec(b,a),v=vec(c,a),n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],len=Math.hypot(...n)||1;for(const p of [a,b,c]){this.vertices.push(...p);this.normals.push(...n.map(x=>x/len));this.colors.push(...rgb(color));}}
+    quad(a,b,c,d,color){this.tri(a,b,c,color);this.tri(a,c,d,color);}
+    box(x,y,z,w,h,d,c){let [x0,x1]=[x-w/2,x+w/2],[y0,y1]=[y-h/2,y+h/2],[z0,z1]=[z-d/2,z+d/2];const t=typeof c==='string'?c:c[0],front=typeof c==='string'?c:c[1]||c[0],side=typeof c==='string'?c:c[2]||c[0];this.quad([x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1],t);this.quad([x0,y0,z1],[x1,y0,z1],[x1,y1,z1],[x0,y1,z1],front);this.quad([x1,y0,z0],[x1,y0,z1],[x1,y1,z1],[x1,y1,z0],side);this.quad([x0,y0,z0],[x0,y1,z0],[x0,y1,z1],[x0,y0,z1],front);this.quad([x0,y0,z0],[x1,y0,z0],[x1,y1,z0],[x0,y1,z0],side);this.quad([x0,y0,z0],[x0,y0,z1],[x1,y0,z1],[x1,y0,z0],side);}
+    cyl(x,y,z,rx,h,rz,color,n=16){const c1=[x,y+h/2,z],c0=[x,y-h/2,z];for(let i=0;i<n;i++){let a=i*2*Math.PI/n,b=(i+1)*2*Math.PI/n;let t0=[x+rx*Math.cos(a),y+h/2,z+rz*Math.sin(a)],t1=[x+rx*Math.cos(b),y+h/2,z+rz*Math.sin(b)],b0=[t0[0],y-h/2,t0[2]],b1=[t1[0],y-h/2,t1[2]];this.quad(t0,t1,b1,b0,color);this.tri(c1,t0,t1,color);this.tri(c0,b1,b0,color);}}
+    sphere(x,y,z,rx,ry,rz,color,n=12,m=7){for(let j=0;j<m;j++){let v0=-Math.PI/2+j*Math.PI/m,v1=-Math.PI/2+(j+1)*Math.PI/m;for(let i=0;i<n;i++){let u0=i*2*Math.PI/n,u1=(i+1)*2*Math.PI/n;const p=(u,v)=>[x+rx*Math.cos(v)*Math.cos(u),y+ry*Math.sin(v),z+rz*Math.cos(v)*Math.sin(u)];this.quad(p(u0,v0),p(u1,v0),p(u1,v1),p(u0,v1),color);}}}
+    ribbon(a,b,width,color){ // flat strip between two points, for structural ribs
+      const dx=b[0]-a[0],dz=b[2]-a[2],norm=Math.hypot(dx,dz)||1;const nx=-dz/norm*width/2,nz=dx/norm*width/2;
+      this.quad([a[0]+nx,a[1],a[2]+nz],[b[0]+nx,b[1],b[2]+nz],[b[0]-nx,b[1],b[2]-nz],[a[0]-nx,a[1],a[2]-nz],color);
+    }
+    finalize(){const v=new Float32Array(this.vertices),n=new Float32Array(this.normals),c=new Float32Array(this.colors),vao=gl.createVertexArray();gl.bindVertexArray(vao);for(const [i,arr] of [v,n,c].entries()){const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,arr,gl.STATIC_DRAW);gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,3,gl.FLOAT,false,0,0);}gl.bindVertexArray(null);return {vao,count:v.length/3};}
+  }
+  const staticGeo=new Geometry(); const gateLGeo=new Geometry(),gateRGeo=new Geometry(),platformGeo=new Geometry(),robotGeo=new Geometry(),waterGeo=new Geometry(),roofRibGeo=new Geometry();
+  const cream='#f0eadd',ivory='#f9f1d8',stone='#d6c7a8',teal='#72a8b4',red='#ad493c',gold='#d2ad52';
+  // Floating land and excavated pool opening, no slab drawn across the mouth of the shaft.
+  staticGeo.box(0,-12.75,0,54,1.25,45,['#756e55','#6b665a','#5f6661']);
+  staticGeo.box(-18,0,0,18,.8,45,['#87b96d','#557f57','#5b8960']);staticGeo.box(18,0,0,18,.8,45,['#8dbb70','#6e8f61','#5b8960']);
+  staticGeo.box(0,0,-14.7,18,.8,15.6,['#91b770','#6e9564','#5d8c63']);staticGeo.box(0,0,14.7,18,.8,15.6,['#8fb66e','#70935e','#5d8558']);
+  // Paving around pit.
+  for(const z of [-7.15,7.15])staticGeo.box(0,.3,z,21,.32,1.85,['#ddd4c2','#baa98f','#a59b87']);for(const x of [-10.2,10.2])staticGeo.box(x,.3,0,1.25,.32,12.7,['#e1d7c4','#baa98f','#a59b87']);
+  staticGeo.box(0,-11.6,0,18,.25,12.5,'#3b4e5d');
+  for(const x of [-9,9])staticGeo.box(x,-5.7,0,.43,11.7,12.5,['#81959f','#5d7480','#62727a']);
+  for(const z of [-6.2,6.2])staticGeo.box(0,-5.7,z,18,11.7,.36,['#788b94','#60747e','#637682']);
+  for(const x of [-7.1,7.1])for(const z of [-4.55,4.55])staticGeo.box(x,-5.55,z,.18,11.4,.18,'#c1d5d2');
+  // Exterior promenade and front oval pool with rim.
+  staticGeo.cyl(7.3,.57,15,8.3,.16,4.5,'#e9d7ae',40);staticGeo.cyl(7.3,.67,15,7.75,.055,4.0,'#6ba4bf',40);
+  for(let i=0;i<12;i++){const a=i*Math.PI*2/12;staticGeo.cyl(7.3+Math.cos(a)*7.9,.78,15+Math.sin(a)*4.3,.17,.32,.17,'#f6eee0',8);}
+  // Curved background path / visual guidance.
+  for(let i=0;i<16;i++){let t=i/15;staticGeo.box(-16+12*t,.48,12-19*t,.4,.04,.44,'#e8dfba');}
+  // Main futuristic building mass, central arched facade and raised, tapered sail roof.
+  staticGeo.box(-11,2.75,-15.5,18,4.8,9.1,['#f2ecd9','#dcd9c8','#dad7c5']);
+  // Swept pale roof: continuous triangulated triangular sail.
+  const roofPart=(geo,frontZ,backZ,color)=>{const layers=24;for(let j=0;j<layers;j++){const v0=j/layers,v1=(j+1)/layers;const row=v=>{const half=.68+8.6*Math.pow(1-v,1.2),y=4.25+15*v,z=frontZ-3.3*v*v;return {half,y,z}};const a=row(v0),b=row(v1);geo.quad([-11-a.half,a.y,a.z],[-11+a.half,a.y,a.z],[-11+b.half,b.y,b.z],[-11-b.half,b.y,b.z],color);geo.quad([-11-a.half,a.y,backZ],[-11-b.half,b.y,backZ],[-11+b.half,b.y,backZ],[-11+a.half,a.y,backZ],'#d8d5c9');}};
+  roofPart(staticGeo,-10.7,-19.3,cream);
+  // Structural rib sweeping up and over the roof edges.
+  for(const sign of [-1,1]){let last=null;for(let j=0;j<=35;j++){let v=j/35,half=.68+8.6*Math.pow(1-v,1.2),p=[-11+sign*half,4.35+15*v,-10.62-3.3*v*v];if(last)roofRibGeo.ribbon(last,p,.34,ivory);last=p;}}
+  // Central dark arched door and fan-shaped upper window, both located near front facade.
+  staticGeo.box(-10.9,2.0,-10.35,2.85,3.55,.22,'#344752');
+  for(let i=0;i<=14;i++){let a=Math.PI*i/14,x=-10.9+1.43*Math.cos(a),y=3.8+1.38*Math.sin(a);staticGeo.sphere(x,y,-10.15,.09,.09,.11,'#d6dfe4',6,4);}
+  staticGeo.box(-11,8.0,-10.50,3.3,1.65,.20,'#587887');
+  for(let i=-1;i<=1;i++)staticGeo.box(-11+i*.98,7.95,-10.33,.09,1.65,.07,'#e8dfd4');
+  // Thirty perforations: graphic analogy with source image, not measured.
+  for(let r=0;r<4;r++)for(let c=0;c<6;c++){const x=-18.7+c*1.35+r*.30;staticGeo.cyl(x,1.05+r*.56,-10.42,.16,.16,.16,'#657f82',8);}
+  // Curved wing extends to left, modeled with radial ribs and swept wall.
+  for(let j=0;j<20;j++){let t0=j/20,t1=(j+1)/20;const wing=t=>[-26+16*t,2.8+13.3*t*t,-13.2-2.7*t];const a=wing(t0),b=wing(t1);staticGeo.quad([a[0],a[1],a[2]],[a[0],a[1]-1.15,a[2]],[b[0],b[1]-1.15,b[2]],[b[0],b[1],b[2]],'#e5d8c4');roofRibGeo.ribbon(a,b,.23,'#efe9d8');}
+  // Separate cylindrical red tower on yellow annular podium.
+  staticGeo.cyl(14.6,1.5,-15,5,2.6,5,'#cfad50',18);staticGeo.cyl(14.6,3.0,-15,5.65,.4,5.65,'#e1d2a7',20);staticGeo.cyl(14.6,8.0,-15,2.15,9.3,2.15,'#9d4d3e',18);
+  for(let i=0;i<12;i++){const a=i*2*Math.PI/12;staticGeo.cyl(14.6+2.03*Math.cos(a),8,-15+2.03*Math.sin(a),.11,9.1,.11,'#c57a5b',6);}
+  for(let i=0;i<14;i++){let a=i*2*Math.PI/14;staticGeo.box(14.6+4.5*Math.cos(a),1.38,-15+4.5*Math.sin(a),.5,1.3,.47,'#ece3c2');}
+  // Low vegetation, stylized trees and a few rocks.
+  const trees=[[-25,-17,2.5],[24,-17,3],[-24,14,3],[23,14,2.8],[19,-3,2],[-26,-3,2]];
+  for(const [x,z,h] of trees){staticGeo.cyl(x,1.4,z,.25,2.5,.25,'#886748',7);staticGeo.sphere(x,3.3,z,1.6*h/3,1.3*h/3,1.7*h/3,'#467b57',12,7);}
+  for(let i=0;i<22;i++){let x=-26+i*2.6,z=i%2===0?21:-21;staticGeo.sphere(x,.32,z,.7,.36,.58,i%3===0?'#9b9a80':'#66785c',8,5);}
+  // Gates; when closed metal covers sit just below shallow symbolic water.
+  gateLGeo.box(0,0,0,8.3,.55,12,['#ceb98d','#aa916c','#aa936f']);gateRGeo.box(0,0,0,8.3,.55,12,['#ceb98d','#aa916c','#aa936f']);
+  for(const geo of [gateLGeo,gateRGeo])for(let i=-2;i<=2;i++)geo.box(i*1.7,.30,0,.10,.06,12,'#897b69');
+  platformGeo.box(0,0,0,5.7,.42,4.5,['#d35b45','#a33e35','#963931']);platformGeo.box(0,.23,0,4.8,.10,3.7,'#c9bda1');
+  // Robot with simple segmented silhouette (explicitly non-canonical).
+  for(const s of [-1,1]){robotGeo.box(s*.88,1.7,0,1.05,3.25,1.2,['#365e7b','#23425a','#2d526d']);robotGeo.box(s*2.16,4.2,0,1.05,3.15,1.24,['#4d7791','#30506e','#30506e']);robotGeo.cyl(s*.89,.25,.02,.65,.47,.65,'#a2bdc5',9);}
+  robotGeo.box(0,4.20,0,3.25,3.2,1.85,['#315570','#29465f','#223f54']);robotGeo.box(0,5.25,1.03,2.25,.35,.25,'#cc5944');robotGeo.box(0,6.0,0,1.65,1.55,1.5,['#e7e0d0','#c4c2bc','#b5b3ad']);robotGeo.box(0,6.9,0,.56,.55,1.75,'#b64337');
+  for(const s of [-1,1])robotGeo.box(s*.45,6.08,.84,.48,.24,.2,'#f4b448');
+  waterGeo.box(0,0,0,16,.09,11.5,'#5aa7bc');
+  const groups={static:staticGeo.finalize(),ribs:roofRibGeo.finalize(),gateL:gateLGeo.finalize(),gateR:gateRGeo.finalize(),platform:platformGeo.finalize(),robot:robotGeo.finalize(),water:waterGeo.finalize()};
+  const draw=(name,x=0,y=0,z=0)=>{const g=groups[name];gl.uniform3f(loc.offset,x,y,z);gl.bindVertexArray(g.vao);gl.drawArrays(gl.TRIANGLES,0,g.count);};
+  let frames=0;
+  function render(){
+    const rect=host.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2),w=Math.max(1,Math.floor(rect.width*dpr)),h=Math.max(1,Math.floor(rect.height*dpr));if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h);}
+    const night=state.lightTime==='noche'?1:state.lightTime==='atardecer'?.34:0;
+    gl.clearColor(...(state.lightTime==='noche'?[.10,.17,.24,1]:state.lightTime==='dia'?[.73,.83,.84,1]:[.89,.71,.60,1]));gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+    gl.useProgram(prog);gl.uniform1f(loc.angle,state.angle);gl.uniform1f(loc.zoom,state.zoom);gl.uniform1f(loc.aspect,w/h);gl.uniform1f(loc.target,1.9);gl.uniform1f(loc.night,night);gl.uniform1f(loc.rain,state.weather==='lluvia'?1:0);
+    draw('static');draw('ribs');draw('gateL',-4.25-8.8*state.opening,.55,0);draw('gateR',4.25+8.8*state.opening,.55,0);
+    draw('platform',0,-11.15+state.lift,0);draw('robot',0,-10.8+state.lift,0);
+    if(state.opening<.012)draw('water',0,.88,0);
+    gl.bindVertexArray(null);frames++;
+  }
+  const ready=()=>!!(gl.getParameter(gl.VERSION)&&gl.getError()===gl.NO_ERROR);
+  function dispose(){for(const g of Object.values(groups))gl.deleteVertexArray(g.vao);canvas.remove();}
+  return {canvas,gl,render,ready,dispose,getFrames:()=>frames,geometryTriangles:Object.values(groups).reduce((n,g)=>n+g.count/3,0)};
+}
+
+const $=id=>document.getElementById(id);
+const state={stage:'predecir',predicted:false,prediction:'',observed:false,trials:[],explained:false,earned:false,opening:0,lift:0,elapsed:0,run:null,phase:'idle',paused:false,mode:'book',angle:.7,zoom:1,reason:'',engine:'iniciando',lastTime:0,lightTime:'atardecer',weather:'seco',pixel:false,events:[],waves:[],ambientClock:0,lastPixelFrame:0};
+const els={scene:$('scene'),canvas:$('view'),feedback:$('feedback'),stamp:$('stamp')};
+const number=n=>new Intl.NumberFormat('es-ES',{maximumFractionDigits:2}).format(n);
+function feedback(s){els.feedback.textContent=s;}
+function logEvent(message){state.events.unshift({id:state.events.length?state.events[0].id+1:1,text:message});state.events=state.events.slice(0,12);const list=$('events');list.replaceChildren();for(const e of state.events){const li=document.createElement('li');li.textContent=String(e.id).padStart(2,'0')+' · '+e.text;list.append(li);}}
+function addWave(amplitude=.9,x=0,z=0){state.waves.push({age:0,amplitude,x,z});state.waves=state.waves.slice(-12);}
+function updateAgentUI(){const a=agentStatuses(state);$('agents').textContent='Operador: '+a.operador+' · Supervisor: '+a.supervisor+' · Observador: '+a.observador;}
+function rendererLabel(){return state.pixel?'diorama Canvas · 64 colores OKLab':state.engine;}
+
+function physical(){let massKg=+$('mass').value,forceKN=+$('thrust').value;return {massKg,forceKN,a:acceleration(massKg,forceKN*1000)}}
+function updateUI(){const p=physical(),c=clearance(state.opening,state.lift),step=!state.predicted?'Predecir':!state.observed?'Observar':!isValidComparison(state.trials)?'Experimentar':!state.explained?'Explicar':'Evaluar';$('step').textContent='Etapa: '+step;$('height').textContent='Altura: '+number(state.lift)+' m';$('acc').textContent='Aceleración inicial ideal: '+number(p.a)+' m/s²';$('massVal').textContent=number(p.massKg);$('thrustVal').textContent=number(p.forceKN);$('margin').textContent='Holgura horizontal: '+number(c.marginX)+' m';$('safety').textContent='Comprobación de envolventes: '+(c.safe?'sin intersección detectada':'intersección detectada');$('progress').textContent=`Evidencias: predicción ${state.predicted?'✓':'—'} · apertura ${state.observed?'✓':'—'} · ensayos ${state.trials.length} · explicación ${state.explained?'✓':'—'}`;$('engineStatus').textContent='Representación: '+rendererLabel();updateAgentUI();
+ $('run').disabled=state.phase==='lifting'||!liftInterlock(state,clearance(state.opening,state.lift)).allowed;$('observe').disabled=!state.predicted||state.phase==='opening';$('flapBtn').disabled=!isValidComparison(state.trials);
+ $('pause').textContent=state.paused?'Reanudar':'Pausar';$('stamp').classList.toggle('earned',state.earned);
+ $('stamp').textContent=state.earned?'SELLO OBTENIDO':'SELLO PENDIENTE';
+ ['book','cinema','section'].forEach(m=>{$(m+'Mode').setAttribute('aria-pressed',String(m===state.mode))});
+}
+function setupControls(){
+ $('predict').addEventListener('click',()=>{if(!$('answer').value){feedback('Selecciona una hipótesis.');return;}state.prediction=$('answer').value;state.predicted=true;logEvent('Predicción registrada');feedback('Hipótesis registrada. Observa ahora cómo se abren las compuertas.');updateUI()});
+ $('observe').addEventListener('click',()=>{if(!state.predicted){feedback('Registra primero una predicción.');return;}state.phase='opening';state.paused=false;addWave(.95,0,0);logEvent('Compuertas: apertura iniciada');feedback('Apertura en curso: observa las compuertas y el margen del pozo.');updateUI()});
+ $('run').addEventListener('click',()=>{if(state.phase==='lifting'){feedback('El ascenso ya está en marcha; espera a que finalice o modifica los parámetros.');return;}if(!state.observed||state.opening<.999){feedback('Apertura incompleta: elevación bloqueada.');return;}const permit=liftInterlock(state,clearance(state.opening,state.lift));if(!permit.allowed){feedback('Ascenso bloqueado: '+permit.reason);logEvent('Interbloqueo: '+permit.reason);return;}const {massKg,forceKN}=physical();const p=trajectory(massKg,forceKN);const trial=makeTrial(massKg,forceKN);state.trials.push(trial);logEvent('Ensayo '+state.trials.length+': '+number(massKg)+' kg y '+number(forceKN)+' kN');addWave(.45,-1.5,1);if(!p.possible){state.phase='idle';state.lift=0;feedback('Ensayo registrado: F ≤ mg; el robot no puede iniciar el ascenso. Prueba una masa distinta manteniendo la fuerza.');}else{state.run=p;state.elapsed=0;state.lift=0;state.phase='lifting';state.paused=false;feedback('Ensayo registrado. El elevador acelera y frena hasta detenerse a 9 m.')}renderTrials();updateUI()});
+ ['mass','thrust'].forEach(id=>$(id).addEventListener('input',()=>{if(state.phase==='lifting'){state.phase='idle';state.run=null;state.lift=0;feedback('Parámetros modificados: se ha interrumpido el ensayo anterior.')}updateUI()}));
+ $('pause').addEventListener('click',()=>{state.paused=!state.paused;logEvent(state.paused?'Secuencia pausada':'Secuencia reanudada');updateUI()});
+ $('flapBtn').addEventListener('click',()=>{if(!isValidComparison(state.trials)){feedback('Realiza dos ensayos con masas distintas manteniendo la misma fuerza.');return;}state.explained=true;logEvent('Solapa explicativa abierta');$('flap').hidden=false;$('flapBtn').setAttribute('aria-expanded','true');feedback('Solapa abierta. Compara tus resultados y redacta una justificación.');updateUI()});
+ $('earn').addEventListener('click',()=>{const justification=$('justification').value.trim();state.reason=justification;let complete=state.prediction===expectedPrediction()&&state.observed&&isValidComparison(state.trials)&&state.explained&&justification.length>=45;
+ if(!complete){feedback('No se concede el sello: comprueba la hipótesis, los dos ensayos comparables y una justificación de al menos 45 caracteres.');return;}state.earned=true;logEvent('Sello de participación concedido (pendiente de revisión docente)');feedback('Sello de participación conseguido. La justificación está registrada, pero debe evaluarse académicamente por una persona docente.');updateUI()});
+ $('reset').addEventListener('click',()=>{Object.assign(state,{stage:'predecir',predicted:false,prediction:'',observed:false,trials:[],explained:false,earned:false,opening:0,lift:0,elapsed:0,run:null,phase:'idle',paused:false,reason:'',waves:[],ambientClock:0,events:[]});logEvent('Sistema reiniciado');$('answer').value='';$('mass').value='20000';$('thrust').value='300';$('justification').value='';$('flap').hidden=true;$('flapBtn').setAttribute('aria-expanded','false');renderTrials();feedback('Modelo reiniciado. Registra una predicción para comenzar.');updateUI()});
+ ['book','cinema','section'].forEach(m=>$(m+'Mode').addEventListener('click',()=>{state.mode=m;feedback(m==='section'?'Inspección: se muestran las envolventes del pozo y del robot.':m==='cinema'?'Cámara de exploración: vista automática en movimiento.':'Modo libro: sigue las cinco fases de aprendizaje.');updateUI()}));
+ $('lightTime').addEventListener('change',()=>{state.lightTime=$('lightTime').value;logEvent('Iluminación: '+state.lightTime);draw()});
+ $('weather').addEventListener('change',()=>{state.weather=$('weather').value;logEvent('Meteorología: '+weatherLabel(state.weather));draw()});
+ $('pixelBtn').addEventListener('click',()=>{state.pixel=!state.pixel;const btn=$('pixelBtn');btn.setAttribute('aria-pressed',String(state.pixel));btn.textContent=state.pixel?'Volver a vista normal':'Diorama de 64 colores';if(state.pixel){active3D=false;$('view').hidden=false;$('three').hidden=true;}else if(threeReady){active3D=true;$('view').hidden=true;$('three').hidden=false;}logEvent(state.pixel?'Modo Canvas pixelado activado':'Modo pixelado desactivado');draw();updateUI()});
+ $('left').addEventListener('click',()=>{state.angle-=Math.PI/8;draw()});$('right').addEventListener('click',()=>{state.angle+=Math.PI/8;draw()});$('zoomIn').addEventListener('click',()=>{state.zoom=Math.min(1.8,state.zoom*1.15);draw()});$('zoomOut').addEventListener('click',()=>{state.zoom=Math.max(.65,state.zoom/1.15);draw()});
+ $('view').addEventListener('pointerdown',e=>{state.drag=[e.clientX,e.clientY];$('view').setPointerCapture(e.pointerId)});$('view').addEventListener('pointermove',e=>{if(!state.drag)return;state.angle+=(e.clientX-state.drag[0])*.009;state.drag=[e.clientX,e.clientY];draw()});$('view').addEventListener('pointerup',()=>state.drag=null);$('view').addEventListener('pointercancel',()=>state.drag=null);
+ $('view').addEventListener('wheel',e=>{e.preventDefault();state.zoom=Math.max(.65,Math.min(1.8,state.zoom*(e.deltaY>0?.92:1.08)));draw()},{passive:false});
+ window.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName))return;if(e.key==='ArrowLeft'){state.angle-=.15;draw()}if(e.key==='ArrowRight'){state.angle+=.15;draw()}});
+}
+function renderTrials(){const tbody=$('trials');tbody.replaceChildren();for(const [i,t] of state.trials.entries()){const tr=document.createElement('tr');[i+1,number(t.massKg),number(t.forceKN),number(t.a),t.canRise?'Sí':'No'].forEach(x=>{const td=document.createElement('td');td.textContent=String(x);tr.append(td)});tbody.appendChild(tr)}if(!state.trials.length){const tr=document.createElement('tr');const td=document.createElement('td');td.colSpan=5;td.textContent='Todavía no hay ensayos registrados.';tr.append(td);tbody.append(tr)}}
+const displayCtx=$('view').getContext('2d',{willReadFrequently:false});let ctx=displayCtx;let W=0,H=0,scale=1,dpr=1;let active3D=false,threeReady=false,glRenderer=null;
+const pixelCanvas=document.createElement('canvas'),pixelCtx=pixelCanvas.getContext('2d',{willReadFrequently:true});
+let pixelWidth=360,pixelHeight=220,oklabLut=null;
+function paintPixelFrame(){if(!oklabLut)oklabLut=buildOklabLut();let frame=pixelCtx.getImageData(0,0,pixelWidth,pixelHeight);quantizePixels(frame,oklabLut);pixelCtx.setTransform(1,0,0,1,0,0);pixelCtx.putImageData(frame,0,0);displayCtx.setTransform(dpr,0,0,dpr,0,0);displayCtx.clearRect(0,0,W,H);displayCtx.imageSmoothingEnabled=false;displayCtx.drawImage(pixelCanvas,0,0,W,H);displayCtx.imageSmoothingEnabled=true;}
+
+function resizeCanvas(){const bounds=els.scene.getBoundingClientRect();W=Math.max(300,Math.floor(bounds.width));H=Math.max(260,Math.floor(bounds.height));dpr=Math.min(window.devicePixelRatio||1,2);$('view').width=Math.round(W*dpr);$('view').height=Math.round(H*dpr);$('view').style.width=W+'px';$('view').style.height=H+'px';ctx=displayCtx;displayCtx.setTransform(dpr,0,0,dpr,0,0);pixelWidth=Math.max(220,Math.min(390,Math.round(W/3)));pixelHeight=Math.max(140,Math.round(pixelWidth*H/W));pixelCanvas.width=pixelWidth;pixelCanvas.height=pixelHeight;scale=Math.min(W/62,H/39)*state.zoom;draw()}
+function project(x,y,z){const c=Math.cos(state.angle),s=Math.sin(state.angle);return [W*.50+(x*c-z*s)*scale,H*.53+((x*s+z*c)*.46-y*.89)*scale]}
+function polygon(points,color,stroke='#334653',lw=.8){ctx.beginPath();points.forEach((p,i)=>{const q=project(...p);i?ctx.lineTo(...q):ctx.moveTo(...q)});ctx.closePath();ctx.fillStyle=color;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke()}}
+function cube(x,y,z,w,h,d,colors){const x0=x-w/2,x1=x+w/2,y0=y-h/2,y1=y+h/2,z0=z-d/2,z1=z+d/2;polygon([[x0,y1,z0],[x1,y1,z0],[x1,y1,z1],[x0,y1,z1]],colors[0]);polygon([[x0,y1,z1],[x1,y1,z1],[x1,y0,z1],[x0,y0,z1]],colors[1]);polygon([[x1,y1,z0],[x1,y1,z1],[x1,y0,z1],[x1,y0,z0]],colors[2]);}
+function line3(a,b,color='#c78c4d',width=2,dash=[]){const p=project(...a),q=project(...b);ctx.beginPath();ctx.setLineDash(dash);ctx.moveTo(...p);ctx.lineTo(...q);ctx.lineWidth=width;ctx.strokeStyle=color;ctx.stroke();ctx.setLineDash([])}
+function label3(text,pos,color='#172d3b'){const [x,y]=project(...pos);ctx.save();ctx.font='bold 12px system-ui';ctx.fillStyle=color;ctx.fillText(text,x+5,y-6);ctx.restore()}
+function draw(){if(active3D)return;if(!W||!H)return;
+ if(state.pixel){ctx=pixelCtx;ctx.setTransform(pixelWidth/W,0,0,pixelHeight/H,0,0);}else{ctx=displayCtx;ctx.setTransform(dpr,0,0,dpr,0,0);}
+ ctx.clearRect(0,0,W,H);const grad=ctx.createLinearGradient(0,0,0,H);
+ const sky={dia:['#dce7db','#d0d2b2'],atardecer:['#efc5a5','#b8bdad'],noche:['#344957','#6a686a']}[state.lightTime];
+ grad.addColorStop(0,sky[0]);grad.addColorStop(1,sky[1]);ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+ // Floating technical plate; objects are deliberately simplified drawing primitives.
+ cube(0,-.9,0,44,1.4,35,['#c6b99e','#897e67','#a99a7b']);
+ // Paved perimeter and vegetation markers.
+ for(const [x,z] of [[-19,13],[-17,14],[-18,-14],[18,14],[19,-14]]){cube(x,.5,z,.5,1.4,.5,['#456e55','#385e4a','#2c4f41']);cube(x,1.45,z,2,1,2,['#709775','#527b5e','#406b56'])}
+ // Tres figuras informativas basadas en reglas, sin comportamiento autónomo ni personajes canónicos.
+ const operatorX=-6.6+Math.sin(state.ambientClock*.4)*.3;
+ cube(operatorX,0.5,-13.7,.55,.85,.5,['#f4d4b2','#bf9073','#ac7c60']);cube(operatorX,1.3,-13.7,.8,.85,.55,['#d0a044','#a97921','#9f762a']);
+ cube(11.3,0.5,9,.55,.85,.5,['#f4d4b2','#bf9073','#ac7c60']);cube(11.3,1.3,9,.8,.85,.55,[state.phase==='blocked'?'#df4332':'#a34435','#883c38','#70302f']);
+ cube(-13,0.5,8,.55,.85,.5,['#f4d4b2','#bf9073','#ac7c60']);cube(-13,1.3,8,.8,.85,.55,['#506f79','#3e5c67','#384e59']);
+ // MZ-02.3: revised silhouette drawn from the supplied low-resolution screenshot.
+ // This is a reasoned visual approximation, never a measured architectural reconstruction.
+ cube(-12,2.7,-13,18,5.2,9,['#eee6d9','#d9d1c1','#c4c6b8']);
+ // White, pointed, curved sail facade (projected hand-built mesh).
+ const sailRow=t=>({x:8.1*Math.pow(1-t,1.18)+.38,y:4.8+14.6*t,z:-8.5-3.3*t*t});
+ let left=[],right=[];for(let j=0;j<=32;j++){let t=j/32,a=sailRow(t);left.push([-12-a.x,a.y,a.z]);right.push([-12+a.x,a.y,a.z]);}
+ polygon([...left,...right.slice().reverse()],'#eee9dc','#e5e6db',1.3);
+ for(let j=0;j<32;j++){line3(left[j],left[j+1],'#faf9eb',3);line3(right[j],right[j+1],'#fffaf2',3);}
+ // Archway and upper window, simplified as graphic shapes close to the facade.
+ cube(-11.8,2.3,-8.34,2.6,3.8,.12,['#384651','#3f505a','#3a515e']);
+ const arc=[];for(let j=0;j<=18;j++){let a=Math.PI*j/18;arc.push([-12+1.45*Math.cos(a),7.9+1.75*Math.sin(a),-8.18]);}
+ polygon([[-13.5,7.75,-8.15],...arc,[-10.5,7.75,-8.15]],'#5f7580','#d0d8d6',1.3);
+ for(let c=-1;c<=1;c++)line3([-12+c*.67,7.75,-8.0],[-12+c*.67,9.2-Math.abs(c)*.4,-8.0],'#e3e6df',1);
+ // Left wing: curving roof, ridge and buttresses.
+ let previous=null;for(let j=0;j<=24;j++){let t=j/24,cur=[-27+15*t,3.0+13.5*t*t,-10-2.1*t];if(previous){polygon([previous,[previous[0],previous[1]-1.25,previous[2]],[cur[0],cur[1]-1.25,cur[2]],cur],'#e2d9c7','#b4aca3',.8);line3(previous,cur,'#fcf4e4',2.2);}previous=cur;}
+ for(let r=0;r<4;r++)for(let c=0;c<6;c++){const x=-19+c*1.1+r*.24;cube(x,1.1+r*.53,-8.13,.26,.23,.07,['#70818a','#4b5f69','#5e6c70']);}
+ // Tower: reddish central chimney and yellow base, facade simplified.
+ cube(13,1.5,-11.5,8,2.7,7,['#e5c962','#b79c45','#bda753']);
+ cube(13,6,-11.5,3.1,9,3.1,['#b26550','#914f43','#8a4c45']);
+ for(let i=-2;i<=2;i++)cube(13+i*.46,6.05,-9.9,.18,8.6,.2,['#cd8567','#985342','#bd7157']);
+ cube(13,10.9,-11.5,3.45,.35,3.45,['#eee1c7','#c5b6a8','#d8c6ac']);
+ // Front pond: white rim and turquoise water, traced as an ellipse rather than an exact plan.
+ const ring=(rx,rz,y)=>Array.from({length:48},(_,i)=>{const a=i*2*Math.PI/48;return [5.8+Math.cos(a)*rx,y,14.4+Math.sin(a)*rz]});
+ polygon(ring(9,4.6,.59),'#f5e8ce','#ede4d4',2);
+ polygon(ring(8.4,4.0,.63),'#6da5bf','#f1ecdc',2.1);
+ // Base slab surrounding pool drawn in four strips; actual opening visible.
+ cube(0,-.1,-7.4,19,.65,2.2,['#c3b59e','#a89b87','#a29a87']);cube(0,-.1,7.4,19,.65,2.2,['#c3b59e','#a89b87','#a29a87']);cube(-10,-.1,0,1,.65,12.4,['#c3b59e','#a89b87','#a29a87']);cube(10,-.1,0,1,.65,12.4,['#c3b59e','#a89b87','#a29a87']);
+ // Shaft walls and rails.
+ cube(0,-11.55,0,18,.25,12.5,['#384f59','#293c44','#314651']);
+ for(const x of [-8.9,8.9])cube(x,-5.6,0,.42,11.4,12.4,['#74848a','#596b73','#5e6974']);
+ for(const z of [-6.1,6.1]){cube(0,-5.6,z,18,11.4,.32,['#849398','#677a82','#62737d']);}
+ for(const x of [-7.2,7.2])for(const z of [-4.5,4.5])line3([x,-11,z],[x,0,z],'#a7c2c9',1.3);
+ // Mobile platform with visual articulated robot envelope.
+ cube(0,-11.15+state.lift,0,5.7,.38,4.5,['#c9664d','#a24132','#943a2f']);
+ let by=-10.8+state.lift;
+ for(const s of [-1,1])cube(s*.88,by+1.65,0,1.0,3.2,1.25,['#34566f','#21384d','#25445e']);
+ cube(0,by+4.1,0,3.1,3,1.8,['#30506b','#263f59','#1f334b']);
+ cube(0,by+5.95,0,1.65,1.5,1.5,['#e8e0d1','#c8c0b4','#bbb1a5']);
+ cube(0,by+6.75,0,.7,.32,1.6,['#c9523f','#a44031','#96362c']);
+ for(const s of [-1,1]){cube(s*2.12,by+4.05,0,1.05,3.1,1.2,['#49708a','#31516f','#2d4861']);}
+ cube(0,by+5.05,.95,2.4,.3,.35,['#d8644b','#ab4637','#ba4734']);
+ // Gate leaves and rail guides.
+ for(const z of [-6.6,6.6])line3([-17,.66,z],[17,.66,z],'#8f6a44',2.5);
+ const shift=state.opening*8.8;
+ cube(-4.25-shift,.40,0,8.3,.55,12,['#d1b681','#aa9066','#aa946f']);cube(4.25+shift,.40,0,8.3,.55,12,['#d1b681','#aa9066','#aa946f']);
+ for(const s of [-1,1]){const x=s*(4.25+shift);for(let i=-2;i<=2;i++)line3([x-3.6,.70,i*2.1],[x+3.6,.70,i*2.1],'#836746',1)}
+ if(state.opening<.95){
+ polygon([[-8,.72,-5.6],[8,.72,-5.6],[8,.72,5.6],[-8,.72,5.6]],'rgba(78,148,169,'+(0.22*(1-state.opening)).toFixed(3)+')',null);
+ const waves=[...state.waves];
+ if(state.weather==='lluvia')for(let i=0;i<5;i++){const clock=state.ambientClock+i*.78;const age=(clock%2.2);waves.push({age,amplitude:.22,x:Math.sin(i*5.7)*6,z:Math.cos(i*3.1)*4});}
+ ctx.save();ctx.beginPath();[[-8,.73,-5.6],[8,.73,-5.6],[8,.73,5.6],[-8,.73,5.6]].forEach((p,i)=>{const q=project(...p);i?ctx.lineTo(...q):ctx.moveTo(...q)});ctx.closePath();ctx.clip();
+ for(const wave of waves){const r=rippleRadius(wave.age),alpha=rippleOpacity(wave.age,wave.amplitude);if(alpha<.012)continue;ctx.beginPath();for(let j=0;j<=32;j++){const theta=j*Math.PI*2/32;const q=project(wave.x+Math.cos(theta)*r,.75,wave.z+Math.sin(theta)*r);j?ctx.lineTo(...q):ctx.moveTo(...q);}ctx.strokeStyle='rgba(232,251,255,'+alpha.toFixed(3)+')';ctx.lineWidth=1.8;ctx.stroke();}ctx.restore();
+ }
+ if(state.mode==='section'){
+ for(const x of [-2.7,2.7])for(const z of [-1.05,1.05])line3([x,by,z],[x,by+6.9,z],'#d35543',1.6,[5,4]);
+ line3([-8.8,-11.2,6.2],[8.8,-11.2,6.2],'#f4c468',3);label3('Envolventes simplificadas',[3,by+7,0],'#9e4c2d');
+ }
+ label3('INSTITUTO · maqueta interpretativa',[-18,8.5,-11]);label3('POZO',[1,0,6.2]);
+ if(state.lightTime==='noche'){ctx.fillStyle='rgba(12,24,43,.22)';ctx.fillRect(0,0,W,H);}
+ ctx.font='12px system-ui';ctx.fillStyle=state.lightTime==='noche'?'#f4e8d0':'#415260';ctx.fillText('Diorama interpretativo · dibujo 2D de geometría isométrica',14,H-13);
+ if(state.pixel)paintPixelFrame();
+}
+
+function animate(t){if(!state.lastTime)state.lastTime=t;const dt=Math.min(.06,Math.max(0,(t-state.lastTime)/1000));state.lastTime=t;if(!state.paused){state.ambientClock+=dt;for(const wave of state.waves)wave.age+=dt;state.waves=state.waves.filter(w=>w.age<3.5);if(state.phase==='opening'){state.opening=Math.min(1,state.opening+dt*.42);if(state.opening>=1){state.phase='idle';state.observed=true;logEvent('Compuertas: apertura completada');feedback('Compuertas abiertas. Realiza al menos dos ensayos con la misma fuerza y masas diferentes.')}}else if(state.phase==='lifting'){state.elapsed+=dt;state.lift=state.run.x(state.elapsed);const check=clearance(state.opening,state.lift);if(!check.safe){state.paused=true;state.phase='blocked';logEvent('Alerta: intersección geométrica');feedback('Movimiento detenido: se ha detectado una intersección entre envolventes.')}else if(state.elapsed>=state.run.tTotal){state.lift=HEIGHT;state.phase='idle';logEvent('Elevación completada con frenado');feedback(`Elevación concluida y frenada en ${number(state.run.tTotal)} s (modelo idealizado).`)}}if(state.mode==='cinema')state.angle+=dt*.065;}if(!state.pixel||t-state.lastPixelFrame>65){draw();state.lastPixelFrame=t;}updateUI();if(active3D&&glRenderer){try{glRenderer.render();}catch(e){active3D=false;state.engine="Canvas de respaldo: error WebGL2";$("view").hidden=false;$("three").hidden=true;logEvent("Fallo de representación 3D: "+e.message);}}requestAnimationFrame(animate)}
+// Local WebGL2 replaces the unverified network-based Three.js path.
+function startOfflineGL(){
+ try{
+   glRenderer=makeOfflineGL($('three'),state);
+   if(!glRenderer.ready())throw Error('Inicialización WebGL2 no válida');
+   threeReady=true;active3D=!state.pixel;
+   $('view').hidden=active3D;$('three').hidden=!active3D;
+   state.engine='WebGL2 local sin conexión (NO Three.js)';
+   glRenderer.render();
+   const canvas=glRenderer.canvas;
+   canvas.addEventListener('pointerdown',e=>{state.drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId)});
+   canvas.addEventListener('pointermove',e=>{if(state.drag){state.angle+=(e.clientX-state.drag[0])*.009;state.drag=[e.clientX,e.clientY];}});
+   canvas.addEventListener('pointerup',()=>state.drag=null);
+   canvas.addEventListener('pointercancel',()=>state.drag=null);
+   canvas.addEventListener('wheel',e=>{e.preventDefault();state.zoom=Math.max(.65,Math.min(1.8,state.zoom*(e.deltaY>0?.92:1.08)))},{passive:false});
+   logEvent('WebGL2 local inicializado · '+glRenderer.geometryTriangles+' triángulos procedurales');
+ }catch(e){active3D=false;threeReady=false;state.engine='Canvas 2D de respaldo: WebGL2 no disponible';$('view').hidden=false;$('three').hidden=true;logEvent('WebGL2 no disponible: '+e.message);}
+ updateUI();draw();
+}
+setupControls();renderTrials();resizeCanvas();state.engine='Inicializando WebGL2 local';updateUI();new ResizeObserver(resizeCanvas).observe(els.scene);logEvent('Sistema iniciado · agentes regidos por estados');requestAnimationFrame(animate);startOfflineGL();
+
+</script></body></html>

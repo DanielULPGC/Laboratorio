@@ -1,0 +1,75 @@
+{
+  "passed": 10,
+  "total": 17,
+  "cases": [
+    {
+      "name": "WebGL2 local inicializado",
+      "pass": false
+    },
+    {
+      "name": "Contexto gráfico con versión válida",
+      "pass": false
+    },
+    {
+      "name": "Malla con triángulos procedurales",
+      "pass": false
+    },
+    {
+      "name": "Fotogramas producidos",
+      "pass": false
+    },
+    {
+      "name": "Lienzo 3D visible",
+      "pass": false
+    },
+    {
+      "name": "Cámara giratoria",
+      "pass": true
+    },
+    {
+      "name": "Compuertas terminan apertura",
+      "pass": true
+    },
+    {
+      "name": "Interbloqueo autoriza ascenso abierto",
+      "pass": true
+    },
+    {
+      "name": "Robot asciende en GPU",
+      "pass": true
+    },
+    {
+      "name": "No reinicia otro ensayo en curso",
+      "pass": true
+    },
+    {
+      "name": "Modo pixelado Canvas disponible",
+      "pass": true
+    },
+    {
+      "name": "Regreso real a WebGL",
+      "pass": false
+    },
+    {
+      "name": "Comparación documental cargada",
+      "pass": true
+    },
+    {
+      "name": "No hubo errores de ejecución",
+      "pass": true
+    },
+    {
+      "name": "WebGL2 también inicia en móvil simulado",
+      "pass": false
+    },
+    {
+      "name": "Vista móvil sin desbordamiento horizontal",
+      "pass": true
+    },
+    {
+      "name": "Sin excepciones JavaScript en ambos tamaños",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

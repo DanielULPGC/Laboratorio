@@ -1,0 +1,43 @@
+from playwright.sync_api import sync_playwright
+from pathlib import Path
+import json
+root=Path(__file__).parent
+results=[]; errors=[]
+def check(name,v):results.append((name,bool(v)))
+with sync_playwright() as p:
+ b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-dev-shm-usage','--disable-gpu'])
+ page=b.new_page(viewport={'width':1280,'height':900},device_scale_factor=1)
+ page.on('pageerror',lambda e:errors.append(str(e)))
+ page.set_content((root/'index.html').read_text(),wait_until='domcontentloaded')
+ page.wait_for_timeout(400)
+ check('La consola de roles está poblada','Operador:' in page.locator('#agents').inner_text())
+ check('La bitácora arranca con registro', 'Sistema iniciado' in page.locator('#events').inner_text())
+ page.locator('#lightTime').select_option('noche');check('La iluminación nocturna es seleccionable',page.locator('#lightTime').input_value()=='noche')
+ page.locator('#weather').select_option('lluvia');check('La lluvia aparece en la bitácora', 'Lluvia' in page.locator('#events').inner_text())
+ page.locator('#pixelBtn').click()
+ page.wait_for_timeout(450)
+ check('Diorama pixelado activado',page.locator('#pixelBtn').get_attribute('aria-pressed')=='true')
+ check('Renderizador pixelado declarado correctamente','Canvas' in page.locator('#engineStatus').inner_text())
+ check('Tamaño lógico de lienzo interno reducido',page.evaluate('pixelWidth < W && pixelHeight < H'))
+ check('Paleta fija de 64 tonos',page.evaluate('PALETTE.length===64'))
+ # Check all pixel values belong to palette (Canvas screenshot is scaled; inspect internal pixel buffer).
+ colors=page.evaluate('''() => {const d=pixelCtx.getImageData(0,0,pixelCanvas.width,pixelCanvas.height).data;let set=new Set();for(let i=0;i<d.length;i+=4){set.add([d[i],d[i+1],d[i+2]].join(','));}return {count:set.size,valid:[...set].every(c=>PALETTE.some(v=>v.join(',')===c))};}''')
+ check('Pixeles en la paleta de 64 tonos',colors['valid'] and colors['count']<=64)
+ page.screenshot(path=str(root/'captura_diorama_pixel.png'),full_page=False)
+ page.locator('#pixelBtn').click()
+ check('Regreso a vista normal',page.locator('#pixelBtn').get_attribute('aria-pressed')=='false')
+ page.locator('#answer').select_option('down');page.locator('#predict').click();page.locator('#observe').click();page.wait_for_timeout(2600)
+ check('Evento de apertura completada', 'apertura completada' in page.locator('#events').inner_text())
+ check('Supervisor adopta estado de apertura completada','Apertura completada' in page.locator('#agents').inner_text())
+ page.screenshot(path=str(root/'captura_entorno_interactivo.png'),full_page=False)
+ mobile=b.new_page(viewport={'width':390,'height':844},device_scale_factor=1)
+ mobile.on('pageerror',lambda e:errors.append(str(e)))
+ mobile.set_content((root/'index.html').read_text(),wait_until='domcontentloaded');mobile.wait_for_timeout(200)
+ check('Sin desbordamiento horizontal en móvil',mobile.evaluate('document.documentElement.scrollWidth <= innerWidth'))
+ mobile.locator('#pixelBtn').click();mobile.wait_for_timeout(250)
+ check('Pixel art seleccionable en móvil',mobile.locator('#pixelBtn').get_attribute('aria-pressed')=='true')
+ mobile.screenshot(path=str(root/'captura_diorama_movil.png'),full_page=False)
+ check('Sin excepciones JavaScript',not errors)
+ b.close()
+print(json.dumps({'passed':sum(ok for _,ok in results),'total':len(results),'cases':results,'errors':errors},ensure_ascii=False,indent=2))
+if not all(ok for _,ok in results):raise SystemExit(1)
