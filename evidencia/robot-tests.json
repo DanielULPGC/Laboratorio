@@ -1,0 +1,50 @@
+{
+  "total": 8,
+  "passed": 8,
+  "bounds": {
+    "min": [
+      -2.267653794288635,
+      0.001999999254941938,
+      -1.040000000745058
+    ],
+    "max": [
+      2.267653794288635,
+      6.689999995231628,
+      0.944999988079071
+    ]
+  },
+  "results": [
+    {
+      "name": "Malla dentro de la envolvente mecánica en X, Y y Z",
+      "status": "PASS"
+    },
+    {
+      "name": "Todas las posiciones, normales e índices son válidos",
+      "status": "PASS"
+    },
+    {
+      "name": "El traslado del elevador conserva la envolvente en todo el recorrido",
+      "status": "PASS"
+    },
+    {
+      "name": "Cada malla pertenece a una de las diez zonas",
+      "status": "PASS"
+    },
+    {
+      "name": "Las cotas exportadas coinciden con los límites reales de cada zona",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislar no cambia cotas y restaurar recupera todas las mallas",
+      "status": "PASS"
+    },
+    {
+      "name": "La aguja del indicador recorre de −120° a +120° según la masa y se limita",
+      "status": "PASS"
+    },
+    {
+      "name": "La ficha declara el diseño original y no contiene referencias externas",
+      "status": "PASS"
+    }
+  ]
+}

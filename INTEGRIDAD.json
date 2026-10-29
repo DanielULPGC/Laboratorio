@@ -1,142 +1,40 @@
 {
-  "project": "MZ-02.3",
-  "generated_on": "2026-10-29",
-  "note": "Archivo derivado del prototipo MZ-02.2; pruebas Canvas superadas; WebGL2 bloqueado en el entorno de ejecución",
+  "version": "LA-03.0",
+  "builtAt": "2026-10-29T12:41:45.840Z",
+  "entry": "index.html",
+  "bytes": 655861,
+  "sha256": "fcab505fef725e976afdd6051b4607fe40417b65c0715f3fbf21ef04b344945f",
+  "dependencies": [
+    {
+      "name": "three",
+      "version": "0.160.1",
+      "license": "MIT",
+      "source": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js",
+      "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+    }
+  ],
+  "externalRuntimeDependencies": [],
+  "note": "HTML con CSS, JavaScript, biblioteca y texturas procedurales embebidos. Sin service worker ni solicitudes externas necesarias.",
   "files": [
     {
-      "path": "README.md",
-      "sha256": "b4cd3e5392e8ea398592dda72cca327be395b32b524d866b4812c0fc0337a1c5",
-      "bytes": 3954
+      "name": "index.html",
+      "bytes": 655861,
+      "sha256": "fcab505fef725e976afdd6051b4607fe40417b65c0715f3fbf21ef04b344945f"
     },
     {
-      "path": "AUDITORIA_MZ-02_3.md",
-      "sha256": "5066654f908d3b7b1233cd6ab7b67bc46e0c2aacef60995032918f331263e752",
-      "bytes": 2859
+      "name": "THREE-LICENSE.txt",
+      "bytes": 1081,
+      "sha256": "852e0e8699169bf9f6fdc6bda3e682d078dcbc738b5d33e74df594721bff271d"
     },
     {
-      "path": "MATRIZ_REFERENCIAS.csv",
-      "sha256": "7600310fede3ff0e146e499a794d066d055f25de5f3c6d8f552392fb2a4c312c",
-      "bytes": 1903
+      "name": "ROBOT_DETALLE.json",
+      "bytes": 12101,
+      "sha256": "ce4e36135e9f8be63b72139b97c7246698d55f351528ef1300fc821a10770963"
     },
     {
-      "path": "referencia_original.jpg",
-      "sha256": "ff1dc18aa7cf131ab2ef9ed73d84be12dc66704cca0b31d07619a49161de4fc5",
-      "bytes": 255427
-    },
-    {
-      "path": "index.html",
-      "sha256": "9cdf44d6d009528d8188727482869833522d0a69a56f9dd83b00abf0ff4f9271",
-      "bytes": 56350
-    },
-    {
-      "path": "base.html",
-      "sha256": "d4bc65ecfb2fb4843a882a5848b23ec36b991395566b6d74d60432fbe0a83f5b",
-      "bytes": 15648
-    },
-    {
-      "path": "app.js",
-      "sha256": "92a3ceabe2db61cecc659fedc5b6b55845e7f32f9645c37b4f352683a0401335",
-      "bytes": 21892
-    },
-    {
-      "path": "core.mjs",
-      "sha256": "6ba5c11b93a564aa5bc4cc4606b806a46c0a4388c06076f5aa29cd9979b10af1",
-      "bytes": 2688
-    },
-    {
-      "path": "simulation.mjs",
-      "sha256": "967826a7cfbf58039dc7b23443898efdd95f78076582f925e26efdd4624423aa",
-      "bytes": 1582
-    },
-    {
-      "path": "palette.mjs",
-      "sha256": "c33c79cbfc78262fbe670e32d6a76c4839d60d6be0f0e15ab7937c7a8bd51864",
-      "bytes": 1948
-    },
-    {
-      "path": "offline-gl.mjs",
-      "sha256": "7436fb09ce4257acb70d0c5cffe672c9608d5391c5bdbeb247d18c4b22c691cd",
-      "bytes": 12757
-    },
-    {
-      "path": "build.py",
-      "sha256": "46b8c0f1b3c22a5df58f4184dbf028977fe38ebe8de9bd6b35b1c1d906bfbc66",
-      "bytes": 808
-    },
-    {
-      "path": "core.test.mjs",
-      "sha256": "a5de4655044193ff344b3b3126a4218ab3ee475247fddb1708a5b7e11a1249fe",
-      "bytes": 2107
-    },
-    {
-      "path": "extension.test.mjs",
-      "sha256": "6e733f056f512bd276f36f027ebac76feb0ffe7631f82009d2dba72ada6cf70f",
-      "bytes": 2542
-    },
-    {
-      "path": "browser_test.py",
-      "sha256": "19a79f988405b35fa8f6370e666958ab13f111fce6bad4491239e28d80b86b1e",
-      "bytes": 3107
-    },
-    {
-      "path": "extra_browser_test.py",
-      "sha256": "9737038f900cb43208a63b9f0591530aaa6b2221589ae8a9c7210a4e3c747b60",
-      "bytes": 2107
-    },
-    {
-      "path": "extension_browser_test.py",
-      "sha256": "23fa0278cebe2e1615325ff100a3fa182db259cc3bed6c2caeddaa98fb788854",
-      "bytes": 3535
-    },
-    {
-      "path": "webgl_browser_test.py",
-      "sha256": "87715646eb3d722b35e73a2080bff4e60924a5e14cf0be4ec7b36c24ab28024c",
-      "bytes": 3600
-    },
-    {
-      "path": "resultado_webgl.json",
-      "sha256": "6689e55353ae92f14185ee35a7a7cb14af2c4ae246a2a498b0d34868cb8f0c94",
-      "bytes": 1431
-    },
-    {
-      "path": "captura_escritorio.png",
-      "sha256": "c9b35a7fbacf05549bc743ba4ebb00d7d7520a4eaac81873ef346748ba9c575f",
-      "bytes": 294643
-    },
-    {
-      "path": "captura_interaccion.png",
-      "sha256": "a8f3fb3767a0bf901382fc7a6b1123f3bd66c625b625cfac40305fee176e6990",
-      "bytes": 389043
-    },
-    {
-      "path": "captura_movil.png",
-      "sha256": "46037addcde61436af6b15acd6284282f20bb7d6731525dba25f37959693e4ef",
-      "bytes": 233738
-    },
-    {
-      "path": "captura_diorama_pixel.png",
-      "sha256": "54c06a4223fa77c0180a79f784a99bb30e9b8d67362260912c68684ee871f140",
-      "bytes": 142713
-    },
-    {
-      "path": "captura_diorama_movil.png",
-      "sha256": "1227e71b5e5df01c3c0bb9f194fe88332329357ae9ddc610498ab582b1df4a00",
-      "bytes": 64062
-    },
-    {
-      "path": "captura_entorno_interactivo.png",
-      "sha256": "28fb95dae1f03ace88b2b44c594c50ea287c58a7c6a56dae1ba0341cd460d0bd",
-      "bytes": 154670
-    },
-    {
-      "path": "captura_escena_canvas.png",
-      "sha256": "c5405ded3c8fb044ea3b7a8c982f59afbd265a18e0e4fc782112f877488972dc",
-      "bytes": 102293
-    },
-    {
-      "path": "comparativa_referencia_vs_canvas.png",
-      "sha256": "370e67a093bc5e419a0469e327bac49f838c7ca6c98647c1298328bd376b9315",
-      "bytes": 652994
+      "name": "FICHA_ROBOT.md",
+      "bytes": 5816,
+      "sha256": "289bb408fee94e3edf683d383a633cfa827761ff70ff3227b6a0f39c0691cc35"
     }
   ]
 }

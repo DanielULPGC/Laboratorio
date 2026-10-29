@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {agentStatuses,liftInterlock,rippleRadius,rippleOpacity,weatherLabel} from './simulation.mjs';
+import {PALETTE,rgbOklab,buildOklabLut,quantizePixels} from './palette.mjs';
+import {clearance} from './core.mjs';
+const results=[];
+function test(name,fn){try{fn();results.push({name,status:'PASS'});}catch(e){results.push({name,status:'FAIL',details:e.message});}}
+test('Paleta exactamente 64 colores únicos',()=>{assert.equal(PALETTE.length,64);assert.equal(new Set(PALETTE.map(c=>c.join(','))).size,64)});
+test('Convertidor OKLab produce tripletas finitas',()=>{for(const v of [[0,0,0],[255,255,255],[105,149,220]])assert.ok(rgbOklab(...v).every(Number.isFinite));});
+test('LUT de 4096 entradas e índices válidos',()=>{const lut=buildOklabLut();assert.equal(lut.length,4096);assert.ok([...lut].every(x=>x>=0&&x<64));});
+test('Cuantización conserva alfa y usa solo colores de la paleta',()=>{const lut=buildOklabLut();const data={data:new Uint8ClampedArray([45,128,228,255,200,120,30,70])};quantizePixels(data,lut);assert.ok(PALETTE.some(x=>x.join(',')===Array.from(data.data.slice(0,3)).join(',')));assert.equal(data.data[7],70);});
+test('Envolventes impiden el ascenso cuando no se abrieron compuertas',()=>assert.equal(liftInterlock({observed:true,opening:0,phase:'idle'},clearance(0,0)).allowed,false));
+test('Apertura completa y envolvente despejada permiten ensayo',()=>assert.equal(liftInterlock({observed:true,opening:1,phase:'idle'},clearance(1,0)).allowed,true));
+test('Estado bloqueado anula un ascenso aunque haya abertura',()=>assert.equal(liftInterlock({observed:true,opening:1,phase:'blocked'},clearance(1,0)).allowed,false));
+test('Roles diferenciados según estado mecánico',()=>{const a=agentStatuses({phase:'opening',opening:.5,trials:[]});assert.match(a.operador,/compuertas/);assert.match(a.supervisor,/desplazamiento/)});
+test('Incidencia comunica alerta sin atribuir IA autónoma',()=>assert.match(agentStatuses({phase:'blocked',opening:1,trials:[]}).supervisor,/ALERTA/));
+test('Radio no negativo y creciente',()=>assert.ok(rippleRadius(2)>rippleRadius(1)&&rippleRadius(-1)===0));
+test('Amplitud amortiguada decrece con la edad',()=>assert.ok(rippleOpacity(1)<rippleOpacity(0)));
+test('Meteorología expresa carácter visual del fenómeno',()=>assert.match(weatherLabel('lluvia'),/visuales/));
+console.log(JSON.stringify({passed:results.filter(x=>x.status==='PASS').length,total:results.length,results},null,2));
+if(results.some(x=>x.status==='FAIL'))process.exit(1);

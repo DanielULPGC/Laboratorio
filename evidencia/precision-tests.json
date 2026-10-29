@@ -1,0 +1,150 @@
+{
+  "version": "LA-03.0",
+  "status": "PASS",
+  "total": 35,
+  "passed": 35,
+  "errors": [],
+  "external": [],
+  "cases": [
+    {
+      "name": "El enlace de zona abre su cámara y su ficha accesible",
+      "status": "PASS"
+    },
+    {
+      "name": "Diez zonas y una vista completa están disponibles",
+      "status": "PASS"
+    },
+    {
+      "name": "Pulsar el indicador en la malla 3D selecciona su zona",
+      "status": "PASS"
+    },
+    {
+      "name": "La aguja del pecho sigue la masa del experimento",
+      "status": "PASS"
+    },
+    {
+      "name": "Los controles anterior y siguiente recorren las zonas",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: head",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: head",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: sensors",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: sensors",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: gauge",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: gauge",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: chest",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: chest",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: arms",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: arms",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: hands",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: hands",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: waist",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: waist",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: legs",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: legs",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: feet",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: feet",
+      "status": "PASS"
+    },
+    {
+      "name": "Enfoque y medidas: back",
+      "status": "PASS"
+    },
+    {
+      "name": "Aislamiento real: back",
+      "status": "PASS"
+    },
+    {
+      "name": "Recorrer e aislar no modifica el experimento",
+      "status": "PASS"
+    },
+    {
+      "name": "Ficha descargada contiene cotas, materiales y límites",
+      "status": "PASS"
+    },
+    {
+      "name": "La descarga coincide con la ficha producida al compilar",
+      "status": "PASS"
+    },
+    {
+      "name": "Volver al robot completo restaura las piezas y la cámara general",
+      "status": "PASS"
+    },
+    {
+      "name": "Inspector sin desbordamiento a 390 px",
+      "status": "PASS"
+    },
+    {
+      "name": "Inspector sin desbordamiento a 320 px",
+      "status": "PASS"
+    },
+    {
+      "name": "La alternativa 2D enfoca la zona y explica sus límites",
+      "status": "PASS"
+    },
+    {
+      "name": "La inspección 2D conserva la paleta de 64 colores",
+      "status": "PASS"
+    },
+    {
+      "name": "La ficha no contiene referencias a personajes o productos externos",
+      "status": "PASS"
+    },
+    {
+      "name": "Sin dependencias externas ni errores JavaScript",
+      "status": "PASS"
+    }
+  ]
+}

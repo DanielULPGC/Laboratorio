@@ -1,0 +1,47 @@
+{
+  "version": "LA-03.0",
+  "status": "PASS",
+  "total": 145,
+  "passed": 145,
+  "reports": [
+    {
+      "name": "core-tests.json",
+      "total": 17,
+      "passed": 17
+    },
+    {
+      "name": "extension-tests.json",
+      "total": 12,
+      "passed": 12
+    },
+    {
+      "name": "mission-tests.json",
+      "total": 25,
+      "passed": 25
+    },
+    {
+      "name": "robot-tests.json",
+      "total": 8,
+      "passed": 8
+    },
+    {
+      "name": "browser-tests.json",
+      "total": 48,
+      "passed": 48
+    },
+    {
+      "name": "precision-tests.json",
+      "total": 35,
+      "passed": 35
+    }
+  ],
+  "htmlSha256": "fcab505fef725e976afdd6051b4607fe40417b65c0715f3fbf21ef04b344945f",
+  "scope": "Pruebas unitarias en Node.js 22; pruebas de navegador en Chromium sin interfaz con WebGL por software (SwiftShader), Canvas, emulación móvil a 320/390/768 px y archivo local sin red. Revisión visual de las diez zonas.",
+  "notRun": [
+    "Microsoft Edge",
+    "Teléfono físico",
+    "Lector de pantalla real",
+    "Evaluación docente con alumnado",
+    "Rendimiento medido en varios dispositivos"
+  ]
+}

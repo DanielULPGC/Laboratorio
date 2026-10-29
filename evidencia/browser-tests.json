@@ -1,0 +1,323 @@
+{
+  "version": "LA-03.0",
+  "date": "2026-10-29T12:50:15.557Z",
+  "status": "PASS",
+  "passed": 48,
+  "total": 48,
+  "errors": [],
+  "externalRequests": [],
+  "diagnostics": {
+    "browser": "153.0.8010.12",
+    "desktop": {
+      "engine": "WebGL · Three.js local",
+      "renderer": {
+        "revision": "160",
+        "draws": 480,
+        "triangles": 69798,
+        "geometries": 335,
+        "textures": 17,
+        "width": 922.8125,
+        "height": 640,
+        "robotBounds": {
+          "min": [
+            -2.267653794288635,
+            -10.79800000074506,
+            -1.040000000745058
+          ],
+          "max": [
+            2.267653794288635,
+            -4.110000004768373,
+            0.944999988079071
+          ]
+        },
+        "character": {
+          "robot": "Brezo",
+          "meshes": 150,
+          "triangles": 49196,
+          "isolatedZone": null,
+          "load": 20000,
+          "needleAngle": 1.0471975511965976,
+          "zones": [
+            "head",
+            "sensors",
+            "gauge",
+            "chest",
+            "arms",
+            "hands",
+            "waist",
+            "legs",
+            "feet",
+            "back"
+          ]
+        },
+        "inspection": {
+          "isolated": false,
+          "visibleEnvironmentNodes": 301
+        }
+      },
+      "bootError": ""
+    },
+    "pixel": {
+      "engine": "Canvas local",
+      "renderer": {
+        "engine": "Canvas",
+        "palette": 64,
+        "width": 922.8125,
+        "height": 640,
+        "pixelColors": 34,
+        "paletteValid": true
+      },
+      "bootError": ""
+    },
+    "offline": {
+      "engine": "WebGL · Three.js local",
+      "renderer": {
+        "revision": "160",
+        "draws": 451,
+        "triangles": 67590,
+        "geometries": 334,
+        "textures": 16,
+        "width": 775.625,
+        "height": 640,
+        "robotBounds": {
+          "min": [
+            -2.267653794288635,
+            -10.79800000074506,
+            -1.040000000745058
+          ],
+          "max": [
+            2.267653794288635,
+            -4.110000004768373,
+            0.944999988079071
+          ]
+        },
+        "character": {
+          "robot": "Brezo",
+          "meshes": 150,
+          "triangles": 49196,
+          "isolatedZone": null,
+          "load": 20000,
+          "needleAngle": 1.0471975511965976,
+          "zones": [
+            "head",
+            "sensors",
+            "gauge",
+            "chest",
+            "arms",
+            "hands",
+            "waist",
+            "legs",
+            "feet",
+            "back"
+          ]
+        },
+        "inspection": {
+          "isolated": false,
+          "visibleEnvironmentNodes": 301
+        }
+      },
+      "bootError": ""
+    }
+  },
+  "results": [
+    {
+      "name": "WebGL real con Three.js 160 empaquetado",
+      "status": "PASS"
+    },
+    {
+      "name": "Geometría real del robot incluida en la envolvente",
+      "status": "PASS"
+    },
+    {
+      "name": "Formulario sin predicción responde con una indicación",
+      "status": "PASS"
+    },
+    {
+      "name": "Pestañas recorren el panel con flechas del teclado",
+      "status": "PASS"
+    },
+    {
+      "name": "Pieza de la escena abre la inspección",
+      "status": "PASS"
+    },
+    {
+      "name": "Tres piezas distintas conceden logro de observación",
+      "status": "PASS"
+    },
+    {
+      "name": "Predicción inicial se conserva sin corregirla automáticamente",
+      "status": "PASS"
+    },
+    {
+      "name": "Compuertas y apertura animada comparten estado",
+      "status": "PASS"
+    },
+    {
+      "name": "Pausa detiene la apertura",
+      "status": "PASS"
+    },
+    {
+      "name": "Apertura completa habilita el ensayo",
+      "status": "PASS"
+    },
+    {
+      "name": "Masa y fuerza bloqueadas mientras se mueve",
+      "status": "PASS"
+    },
+    {
+      "name": "Flechas distinguen empuje aplicado durante el frenado",
+      "status": "PASS"
+    },
+    {
+      "name": "Primer ensayo termina a 9 m y velocidad cero",
+      "status": "PASS"
+    },
+    {
+      "name": "Segundo ensayo comienza con retorno a la base",
+      "status": "PASS"
+    },
+    {
+      "name": "Dos masas a igual fuerza habilitan explicación",
+      "status": "PASS"
+    },
+    {
+      "name": "La comparación muestra peso, fuerza neta y la pregunta sobre la proporcionalidad",
+      "status": "PASS"
+    },
+    {
+      "name": "Ensayos de referencia sin tope: la animación usa la aceleración calculada",
+      "status": "PASS"
+    },
+    {
+      "name": "No hay sello sin conclusión y justificación",
+      "status": "PASS"
+    },
+    {
+      "name": "Conclusión contradictoria pide volver a los datos",
+      "status": "PASS"
+    },
+    {
+      "name": "Predicción inicial incorrecta requiere revisión consciente",
+      "status": "PASS"
+    },
+    {
+      "name": "Secuencia completa obtiene sello de participación",
+      "status": "PASS"
+    },
+    {
+      "name": "Cuaderno descargable conserva idea inicial, revisión y datos",
+      "status": "PASS"
+    },
+    {
+      "name": "Tabla y gráfica coinciden con los ensayos terminados",
+      "status": "PASS"
+    },
+    {
+      "name": "Recarga conserva cuaderno y vuelve a un reposo seguro",
+      "status": "PASS"
+    },
+    {
+      "name": "Fuerza insuficiente queda como evidencia, sin ascenso",
+      "status": "PASS"
+    },
+    {
+      "name": "Noche y lluvia actualizan estado y bitácora",
+      "status": "PASS"
+    },
+    {
+      "name": "Fotografía de la escena se descarga como PNG",
+      "status": "PASS"
+    },
+    {
+      "name": "Diorama usa realmente la paleta fija de 64 colores",
+      "status": "PASS"
+    },
+    {
+      "name": "Salir del diorama recupera la escena WebGL y la misma misión",
+      "status": "PASS"
+    },
+    {
+      "name": "Descripción textual incluye medidas y roles",
+      "status": "PASS"
+    },
+    {
+      "name": "Guía docente distingue participación y razonamiento",
+      "status": "PASS"
+    },
+    {
+      "name": "Controles de formulario tienen etiquetas",
+      "status": "PASS"
+    },
+    {
+      "name": "Reinicio limpia misión, ensayos y sello",
+      "status": "PASS"
+    },
+    {
+      "name": "Alternativa 2D arranca sin WebGL",
+      "status": "PASS"
+    },
+    {
+      "name": "Preferencia de movimiento reducido se respeta al iniciar",
+      "status": "PASS"
+    },
+    {
+      "name": "Sin desbordamiento horizontal a 320px",
+      "status": "PASS"
+    },
+    {
+      "name": "Sin desbordamiento horizontal a 390px",
+      "status": "PASS"
+    },
+    {
+      "name": "Sin desbordamiento horizontal a 768px",
+      "status": "PASS"
+    },
+    {
+      "name": "Apertura sin animación mantiene el interbloqueo",
+      "status": "PASS"
+    },
+    {
+      "name": "Fuerzas distintas no permiten cerrar la comparación",
+      "status": "PASS"
+    },
+    {
+      "name": "Recorrido completo funciona en Canvas móvil sin animación",
+      "status": "PASS"
+    },
+    {
+      "name": "Navegación móvil vuelve al reto",
+      "status": "PASS"
+    },
+    {
+      "name": "HTML abierto desde disco inicia WebGL con la red desconectada",
+      "status": "PASS"
+    },
+    {
+      "name": "Misión completa desde archivo sin conexión",
+      "status": "PASS"
+    },
+    {
+      "name": "Archivo autónomo no intenta acceder a HTTP ni HTTPS",
+      "status": "PASS"
+    },
+    {
+      "name": "Fallo de guardado no bloquea la actividad",
+      "status": "PASS"
+    },
+    {
+      "name": "Ninguna dependencia externa solicitada durante el recorrido",
+      "status": "PASS"
+    },
+    {
+      "name": "Sin excepciones JavaScript en los recorridos",
+      "status": "PASS"
+    }
+  ],
+  "notRun": [
+    "Teléfono físico",
+    "Lector de pantalla real",
+    "Evaluación docente con alumnado",
+    "Fidelidad contrastada con fotogramas autorizados",
+    "Validación de rendimiento en varios dispositivos"
+  ]
+}

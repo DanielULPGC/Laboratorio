@@ -1,0 +1,54 @@
+{
+  "passed": 12,
+  "total": 12,
+  "results": [
+    {
+      "name": "Paleta exactamente 64 colores únicos",
+      "status": "PASS"
+    },
+    {
+      "name": "Convertidor OKLab produce tripletas finitas",
+      "status": "PASS"
+    },
+    {
+      "name": "LUT de 4096 entradas e índices válidos",
+      "status": "PASS"
+    },
+    {
+      "name": "Cuantización conserva alfa y usa solo colores de la paleta",
+      "status": "PASS"
+    },
+    {
+      "name": "Envolventes impiden el ascenso cuando no se abrieron compuertas",
+      "status": "PASS"
+    },
+    {
+      "name": "Apertura completa y envolvente despejada permiten ensayo",
+      "status": "PASS"
+    },
+    {
+      "name": "Estado bloqueado anula un ascenso aunque haya abertura",
+      "status": "PASS"
+    },
+    {
+      "name": "Roles diferenciados según estado mecánico",
+      "status": "PASS"
+    },
+    {
+      "name": "Incidencia comunica alerta sin atribuir IA autónoma",
+      "status": "PASS"
+    },
+    {
+      "name": "Radio no negativo y creciente",
+      "status": "PASS"
+    },
+    {
+      "name": "Amplitud amortiguada decrece con la edad",
+      "status": "PASS"
+    },
+    {
+      "name": "Meteorología expresa carácter visual del fenómeno",
+      "status": "PASS"
+    }
+  ]
+}

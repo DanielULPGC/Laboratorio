@@ -1,0 +1,514 @@
+{
+  "version": "LA-03.0",
+  "robot": "Brezo",
+  "reference": "Diseño original del Laboratorio Atlántico (sin referencia externa)",
+  "units": "metros; dimensiones del modelo didáctico",
+  "measuringMethod": "Límites locales de malla alineados con X/Y/Z; muestra del lado derecho en extremidades",
+  "figure": {
+    "id": "all",
+    "label": "Robot completo",
+    "sample": "conjunto de la zona",
+    "bounds": {
+      "min": [
+        -2.267653794288635,
+        0.001999999254941938,
+        -1.040000000745058
+      ],
+      "max": [
+        2.267653794288635,
+        6.689999995231628,
+        0.944999988079071
+      ]
+    },
+    "center": [
+      0,
+      3.345999997243285,
+      -0.047500006332993505
+    ],
+    "dimensions": {
+      "width": 4.53530758857727,
+      "height": 6.6879999959766865,
+      "depth": 1.984999988824129
+    },
+    "heightPercent": 100,
+    "meshCount": 150,
+    "materialIds": [
+      "rubber",
+      "ochre",
+      "graphite",
+      "cream",
+      "steel",
+      "teal",
+      "lamp",
+      "dial",
+      "needle",
+      "glow",
+      "visor"
+    ],
+    "observed": "Robot de diseño original.",
+    "interpretation": "DISEÑO_ORIGINAL"
+  },
+  "zones": [
+    {
+      "id": "head",
+      "label": "Cabeza y visor",
+      "sample": "conjunto de la zona",
+      "bounds": {
+        "min": [
+          -0.6940211310982705,
+          5.559999998509884,
+          -0.5049999761581421
+        ],
+        "max": [
+          0.6940211310982705,
+          6.460000005960464,
+          0.5971190164983272
+        ]
+      },
+      "center": [
+        0,
+        6.010000002235174,
+        0.04605952017009257
+      ],
+      "dimensions": {
+        "width": 1.388042262196541,
+        "height": 0.9000000074505801,
+        "depth": 1.1021189926564694
+      },
+      "heightPercent": 13.456937918540593,
+      "meshCount": 19,
+      "materialIds": [
+        "graphite",
+        "ochre",
+        "visor",
+        "glow",
+        "steel",
+        "teal",
+        "cream"
+      ],
+      "observed": "Cabeza compacta de color ocre con un visor horizontal envolvente y dos lentes redondas.",
+      "interpretation": "DISEÑO_ORIGINAL"
+    },
+    {
+      "id": "sensors",
+      "label": "Mástil y sensores",
+      "sample": "conjunto de la zona",
+      "bounds": {
+        "min": [
+          -0.46999999523162844,
+          6.399999998509884,
+          -0.22596192248165609
+        ],
+        "max": [
+          0.4272979810833931,
+          6.689999995231628,
+          0.034999999664723884
+        ]
+      },
+      "center": [
+        -0.02135100707411766,
+        6.5449999968707555,
+        -0.0954809614084661
+      ],
+      "dimensions": {
+        "width": 0.8972979763150215,
+        "height": 0.28999999672174415,
+        "depth": 0.26096192214638
+      },
+      "heightPercent": 4.336124355505383,
+      "meshCount": 5,
+      "materialIds": [
+        "steel",
+        "graphite",
+        "glow",
+        "lamp"
+      ],
+      "observed": "Un mástil corto con cámara y una antena fina en el lado contrario.",
+      "interpretation": "DISEÑO_ORIGINAL"
+    },
+    {
+      "id": "gauge",
+      "label": "Indicador de masa",
+      "sample": "conjunto de la zona",
+      "bounds": {
+        "min": [
+          -0.39605116844177246,
+          4.142679488658905,
+          0.6750000003352761
+        ],
+        "max": [
+          0.39605116844177246,
+          5.057320511341095,
+          0.8109999997764826
+        ]
+      },
+      "center": [
+        0,
+        4.6,
+        0.7430000000558794
+      ],
+      "dimensions": {
+        "width": 0.7921023368835449,
+        "height": 0.9146410226821899,
+        "depth": 0.13599999944120655
+      },
+      "heightPercent": 13.675852620101859,
+      "meshCount": 10,
+      "materialIds": [
+        "graphite",
+        "dial",
+        "steel",
+        "needle"
+      ],
+      "observed": "Escotilla hexagonal con un dial. La aguja señala la masa elegida en el experimento.",
+      "interpretation": "DISEÑO_ORIGINAL · RECURSO_DIDACTICO"
+    },
+    {
+      "id": "chest",
+      "label": "Torso y carcasa",
+      "sample": "conjunto de la zona",
+      "bounds": {
+        "min": [
+          -1.4199999570846558,
+          3.769999976158142,
+          -0.7300000190734863
+        ],
+        "max": [
+          1.4199999570846558,
+          5.57,
+          0.7949999997019768
+        ]
+      },
+      "center": [
+        0,
+        4.669999988079072,
+        0.03249999031424522
+      ],
+      "dimensions": {
+        "width": 2.8399999141693115,
+        "height": 1.800000023841858,
+        "depth": 1.525000018775463
+      },
+      "heightPercent": 26.913875970763872,
+      "meshCount": 12,
+      "materialIds": [
+        "cream",
+        "ochre",
+        "teal",
+        "graphite",
+        "lamp"
+      ],
+      "observed": "Torso claro y ancho, con una pieza ocre que une los hombros y franjas verdes laterales.",
+      "interpretation": "DISEÑO_ORIGINAL"
+    },
+    {
+      "id": "arms",
+      "label": "Hombros, brazos y fuelles",
+      "sample": "lado derecho",
+      "bounds": {
+        "min": [
+          1.1723462057113647,
+          2.5900000005960466,
+          -0.5476537942886353
+        ],
+        "max": [
+          2.267653794288635,
+          5.7150000107288355,
+          0.5476537942886353
+        ]
+      },
+      "center": [
+        1.7199999999999998,
+        4.152500005662441,
+        0
+      ],
+      "dimensions": {
+        "width": 1.0953075885772703,
+        "height": 3.125000010132789,
+        "depth": 1.0953075885772705
+      },
+      "heightPercent": 46.72547864851527,
+      "meshCount": 8,
+      "materialIds": [
+        "ochre",
+        "graphite",
+        "cream"
+      ],
+      "observed": "Hombros esféricos ocres, brazo grafito y antebrazo ocre con anilla clara.",
+      "interpretation": "DISEÑO_ORIGINAL"
+    },
+    {
+      "id": "hands",
+      "label": "Pinzas de tres dedos",
+      "sample": "lado derecho",
+      "bounds": {
+        "min": [
+          1.5395518335025273,
+          1.8858484186695266,
+          -0.25
+        ],
+        "max": [
+          2.1804481664974733,
+          2.6500000059604645,
+          0.3324939042564606
+        ]
+      },
+      "center": [
+        1.8600000000000003,
+        2.2679242123149956,
+        0.04124695212823029
+      ],
+      "dimensions": {
+        "width": 0.640896332994946,
+        "height": 0.7641515872909379,
+        "depth": 0.5824939042564605
+      },
+      "heightPercent": 11.425711539333584,
+      "meshCount": 13,
+      "materialIds": [
+        "graphite",
+        "steel",
+        "ochre",
+        "teal"
+      ],
+      "observed": "Una palma corta con tres dedos curvos repartidos alrededor, como una pinza.",
+      "interpretation": "DISEÑO_ORIGINAL"
+    },
+    {
+      "id": "waist",
+      "label": "Cintura y cadera",
+      "sample": "conjunto de la zona",
+      "bounds": {
+        "min": [
+          -1.2599999973177909,
+          2.779999988079071,
+          -0.6499999761581421
+        ],
+        "max": [
+          1.2599999973177909,
+          3.8199165596067903,
+          0.6499999761581421
+        ]
+      },
+      "center": [
+        0,
+        3.2999582738429307,
+        0
+      ],
+      "dimensions": {
+        "width": 2.5199999946355818,
+        "height": 1.0399165715277192,
+        "depth": 1.2999999523162842
+      },
+      "heightPercent": 15.54899180851232,
+      "meshCount": 8,
+      "materialIds": [
+        "steel",
+        "graphite",
+        "cream",
+        "ochre"
+      ],
+      "observed": "Cadera grafito con cinturón claro, placas laterales ocres y fuelles de cintura.",
+      "interpretation": "DISEÑO_ORIGINAL"
+    },
+    {
+      "id": "legs",
+      "label": "Piernas y pistones",
+      "sample": "lado derecho",
+      "bounds": {
+        "min": [
+          0.3499999928474426,
+          0.699999988079071,
+          -0.6000000014901161
+        ],
+        "max": [
+          1.2100000071525574,
+          3.0218186742067337,
+          0.47999999701976775
+        ]
+      },
+      "center": [
+        0.78,
+        1.8609093311429024,
+        -0.06000000223517418
+      ],
+      "dimensions": {
+        "width": 0.8600000143051147,
+        "height": 2.3218186861276626,
+        "depth": 1.0799999985098838
+      },
+      "heightPercent": 34.716188509635224,
+      "meshCount": 14,
+      "materialIds": [
+        "ochre",
+        "cream",
+        "steel",
+        "graphite"
+      ],
+      "observed": "Muslo con fuelles, rodilla con tapa ocre y espinillera clara.",
+      "interpretation": "DISEÑO_ORIGINAL"
+    },
+    {
+      "id": "feet",
+      "label": "Pies y apoyos",
+      "sample": "lado derecho",
+      "bounds": {
+        "min": [
+          0.2399999785423279,
+          0.001999999254941938,
+          -0.7099999994039535
+        ],
+        "max": [
+          1.3200000214576721,
+          0.8199999904632569,
+          0.944999988079071
+        ]
+      },
+      "center": [
+        0.78,
+        0.41099999485909944,
+        0.11749999433755876
+      ],
+      "dimensions": {
+        "width": 1.0800000429153442,
+        "height": 0.8179999912083149,
+        "depth": 1.6549999874830246
+      },
+      "heightPercent": 12.230861119922261,
+      "meshCount": 7,
+      "materialIds": [
+        "rubber",
+        "ochre",
+        "graphite"
+      ],
+      "observed": "Pies anchos y planos con tres punteras, espolón trasero y suela de goma.",
+      "interpretation": "DISEÑO_ORIGINAL"
+    },
+    {
+      "id": "back",
+      "label": "Mochila de baterías",
+      "sample": "conjunto de la zona",
+      "bounds": {
+        "min": [
+          -0.949999988079071,
+          4.000000011920929,
+          -1.040000000745058
+        ],
+        "max": [
+          0.949999988079071,
+          5.7449999988079075,
+          -0.6999999994039535
+        ]
+      },
+      "center": [
+        0,
+        4.872500005364419,
+        -0.8700000000745058
+      ],
+      "dimensions": {
+        "width": 1.899999976158142,
+        "height": 1.7449999868869783,
+        "depth": 0.34000000134110453
+      },
+      "heightPercent": 26.091506996661508,
+      "meshCount": 12,
+      "materialIds": [
+        "graphite",
+        "teal",
+        "steel",
+        "glow"
+      ],
+      "observed": "Mochila grafito con dos baterías cilíndricas, aletas de refrigeración y asa.",
+      "interpretation": "DISEÑO_ORIGINAL"
+    }
+  ],
+  "materials": [
+    {
+      "id": "ochre",
+      "color": "#d38b2c",
+      "metalness": 0.35,
+      "roughness": 0.45,
+      "opacity": 1
+    },
+    {
+      "id": "cream",
+      "color": "#ece3cf",
+      "metalness": 0.08,
+      "roughness": 0.55,
+      "opacity": 1
+    },
+    {
+      "id": "graphite",
+      "color": "#33393d",
+      "metalness": 0.6,
+      "roughness": 0.42,
+      "opacity": 1
+    },
+    {
+      "id": "steel",
+      "color": "#9aa3a6",
+      "metalness": 0.9,
+      "roughness": 0.26,
+      "opacity": 1
+    },
+    {
+      "id": "teal",
+      "color": "#2b7f7a",
+      "metalness": 0.3,
+      "roughness": 0.4,
+      "opacity": 1
+    },
+    {
+      "id": "rubber",
+      "color": "#1d2124",
+      "metalness": 0.05,
+      "roughness": 0.85,
+      "opacity": 1
+    },
+    {
+      "id": "visor",
+      "color": "#14262b",
+      "metalness": 0.5,
+      "roughness": 0.12,
+      "opacity": 1
+    },
+    {
+      "id": "glow",
+      "color": "#6fe3cf",
+      "metalness": 0,
+      "roughness": null,
+      "opacity": 1
+    },
+    {
+      "id": "lamp",
+      "color": "#ff8a5c",
+      "metalness": 0,
+      "roughness": null,
+      "opacity": 1
+    },
+    {
+      "id": "dial",
+      "color": "#f6f1e4",
+      "metalness": 0,
+      "roughness": 0.6,
+      "opacity": 1
+    },
+    {
+      "id": "needle",
+      "color": "#c8452f",
+      "metalness": 0,
+      "roughness": null,
+      "opacity": 1
+    }
+  ],
+  "mechanicalEnvelope": {
+    "halfX": 2.7,
+    "halfZ": 1.05,
+    "height": 6.7
+  },
+  "limits": [
+    "Diseño original: no representa ningún personaje ni producto comercial",
+    "Las articulaciones son visuales; no se simula su movimiento",
+    "Las colisiones del simulador usan la envolvente rectangular, no estas mallas"
+  ]
+}

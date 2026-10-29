@@ -1,0 +1,74 @@
+{
+  "total": 17,
+  "passed": 17,
+  "results": [
+    {
+      "name": "a=F/m-g",
+      "status": "PASS"
+    },
+    {
+      "name": "masa mayor disminuye a a fuerza fija",
+      "status": "PASS"
+    },
+    {
+      "name": "F<=mg impide elevarse",
+      "status": "PASS"
+    },
+    {
+      "name": "pozo lateral despejado en reposo",
+      "status": "PASS"
+    },
+    {
+      "name": "compuertas cerradas colisionan durante ascenso",
+      "status": "PASS"
+    },
+    {
+      "name": "apertura total sin solapamiento",
+      "status": "PASS"
+    },
+    {
+      "name": "holgura medible y monótona",
+      "status": "PASS"
+    },
+    {
+      "name": "límites inválidos rechazados",
+      "status": "PASS"
+    },
+    {
+      "name": "trayectoria empieza en reposo y x=0",
+      "status": "PASS"
+    },
+    {
+      "name": "trayectoria termina en reposo y altura final",
+      "status": "PASS"
+    },
+    {
+      "name": "trayectoria posición continua en transición",
+      "status": "PASS"
+    },
+    {
+      "name": "trayectoria acotada y monótona",
+      "status": "PASS"
+    },
+    {
+      "name": "comparación requiere masas distintas con misma fuerza",
+      "status": "PASS"
+    },
+    {
+      "name": "fuerza neta = empuje − peso y explica la aceleración",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicar la masa no divide la aceleración entre dos cuando actúa el peso",
+      "status": "PASS"
+    },
+    {
+      "name": "el ensayo de referencia (20 t y 40 t con 500 kN) no alcanza el tope de la animación",
+      "status": "PASS"
+    },
+    {
+      "name": "los ensayos por encima del tope se marcan y la animación se limita",
+      "status": "PASS"
+    }
+  ]
+}

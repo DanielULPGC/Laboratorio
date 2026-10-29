@@ -1,0 +1,106 @@
+{
+  "total": 25,
+  "passed": 25,
+  "results": [
+    {
+      "name": "Apertura requiere una predicción y no inventa una respuesta",
+      "status": "PASS"
+    },
+    {
+      "name": "Idea inicial incorrecta se registra para contrastarla",
+      "status": "PASS"
+    },
+    {
+      "name": "Compuertas cerradas bloquean un ensayo",
+      "status": "PASS"
+    },
+    {
+      "name": "La apertura completa habilita el ensayo",
+      "status": "PASS"
+    },
+    {
+      "name": "Un ensayo en curso no cuenta como prueba terminada",
+      "status": "PASS"
+    },
+    {
+      "name": "No se cambian masa ni fuerza durante un movimiento",
+      "status": "PASS"
+    },
+    {
+      "name": "El ascenso termina a 9 m y en reposo",
+      "status": "PASS"
+    },
+    {
+      "name": "Flechas durante la subida respetan la aceleración regulada",
+      "status": "PASS"
+    },
+    {
+      "name": "Frenado reduce empuje por debajo del peso sin invertir la velocidad",
+      "status": "PASS"
+    },
+    {
+      "name": "El siguiente ensayo vuelve primero a la base",
+      "status": "PASS"
+    },
+    {
+      "name": "Una fuerza que no supera el peso también se registra",
+      "status": "PASS"
+    },
+    {
+      "name": "Pausa congela la mecánica y el reloj",
+      "status": "PASS"
+    },
+    {
+      "name": "Misma fuerza y masas distintas producen comparación válida",
+      "status": "PASS"
+    },
+    {
+      "name": "Fuerzas distintas no producen comparación válida",
+      "status": "PASS"
+    },
+    {
+      "name": "Sello requiere una explicación y la conclusión contrastada",
+      "status": "PASS"
+    },
+    {
+      "name": "Predicción equivocada debe revisarse antes del sello",
+      "status": "PASS"
+    },
+    {
+      "name": "Secuencia completa concede participación y permite explorar",
+      "status": "PASS"
+    },
+    {
+      "name": "Movimiento reducido conserva los resultados sin espera animada",
+      "status": "PASS"
+    },
+    {
+      "name": "Parámetros no finitos o fuera del dominio son rechazados",
+      "status": "PASS"
+    },
+    {
+      "name": "Persistencia no restaura un movimiento a medio ejecutar",
+      "status": "PASS"
+    },
+    {
+      "name": "Restauración recalcula datos físicos y no confía en cifras guardadas",
+      "status": "PASS"
+    },
+    {
+      "name": "Datos guardados inválidos no bloquean el inicio",
+      "status": "PASS"
+    },
+    {
+      "name": "Inspección es única y reiniciar limpia pruebas y logros",
+      "status": "PASS"
+    },
+    {
+      "name": "Inspeccionar zonas conserva el ensayo en curso y el cuaderno",
+      "status": "PASS"
+    },
+    {
+      "name": "Zona inválida no altera el estado y reiniciar limpia el aislamiento",
+      "status": "PASS"
+    }
+  ]
+}

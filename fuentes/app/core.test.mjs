@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {acceleration,makeTrial,clearance,trajectory,isValidComparison,G,HEIGHT,LIFT_ACC_CAP} from './core.mjs';
+const tests=[];function test(name,fn){try{fn();tests.push({name,status:'PASS'});}catch(e){tests.push({name,status:'FAIL',reason:e.message});}}
+test('a=F/m-g',()=>assert.ok(Math.abs(acceleration(20000,300000)-(15-G))<1e-10));
+test('masa mayor disminuye a a fuerza fija',()=>assert.ok(makeTrial(40000,300).a<makeTrial(20000,300).a));
+test('F<=mg impide elevarse',()=>assert.equal(trajectory(50000,100).possible,false));
+test('pozo lateral despejado en reposo',()=>assert.equal(clearance(0,0).safe,true));
+test('compuertas cerradas colisionan durante ascenso',()=>{assert.equal(clearance(0,6).safe,false);assert.equal(clearance(0,6).gateOverlap,true)});
+test('apertura total sin solapamiento',()=>assert.equal(clearance(1,HEIGHT).safe,true));
+test('holgura medible y monótona',()=>assert.ok(clearance(1,HEIGHT).marginX>clearance(.4,HEIGHT).marginX));
+test('límites inválidos rechazados',()=>assert.throws(()=>clearance(1.4,0)));
+test('trayectoria empieza en reposo y x=0',()=>{const p=trajectory(20000,300);assert.equal(p.x(0),0);assert.equal(p.v(0),0)});
+test('trayectoria termina en reposo y altura final',()=>{const p=trajectory(20000,300);assert.ok(Math.abs(p.x(p.tTotal)-HEIGHT)<1e-9);assert.equal(p.v(p.tTotal),0)});
+test('trayectoria posición continua en transición',()=>{const p=trajectory(20000,300);assert.ok(Math.abs(p.x(p.t1-1e-6)-p.x(p.t1+1e-6))<.001)});
+test('trayectoria acotada y monótona',()=>{const p=trajectory(20000,300);let prev=0;for(let i=0;i<=100;i++){let x=p.x(i*p.tTotal/100);assert.ok(x>=prev-1e-9&&x<=HEIGHT+1e-9);prev=x}});
+test('comparación requiere masas distintas con misma fuerza',()=>{assert.equal(isValidComparison([makeTrial(20000,300),makeTrial(40000,300)]),true);assert.equal(isValidComparison([makeTrial(20000,300),makeTrial(40000,400)]),false)});
+test('fuerza neta = empuje − peso y explica la aceleración',()=>{for(const [m,f] of [[20000,500],[40000,500],[33000,250]]){const t=makeTrial(m,f);assert.ok(Math.abs(t.weightKN-m*G/1000)<1e-9);assert.ok(Math.abs(t.netKN-(f-t.weightKN))<1e-9);assert.ok(Math.abs(t.a-t.netKN*1000/m)<1e-9);}});
+test('duplicar la masa no divide la aceleración entre dos cuando actúa el peso',()=>{const a=makeTrial(20000,500),b=makeTrial(40000,500);assert.ok(Math.abs(a.a/b.a-2)>1);assert.ok(Math.abs(a.forceKN*1000/a.massKg/(b.forceKN*1000/b.massKg)-2)<1e-12);});
+test('el ensayo de referencia (20 t y 40 t con 500 kN) no alcanza el tope de la animación',()=>{for(const m of [20000,40000]){const t=makeTrial(m,500),p=trajectory(m,500);assert.equal(t.capped,false);assert.ok(Math.abs(p.accUp-t.a)<1e-12);}});
+test('los ensayos por encima del tope se marcan y la animación se limita',()=>{const t=makeTrial(10000,900),p=trajectory(10000,900);assert.equal(t.capped,true);assert.equal(p.accUp,LIFT_ACC_CAP);assert.ok(Math.abs(p.x(p.tTotal)-HEIGHT)<1e-9);});
+console.log(JSON.stringify({total:tests.length,passed:tests.filter(t=>t.status==='PASS').length,results:tests},null,2));if(tests.some(t=>t.status==='FAIL'))process.exitCode=1;

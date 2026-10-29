@@ -1,0 +1,36 @@
+OPERACIÓN DESPEGUE · MI CUADERNO
+LA–03.0 · Física y Tecnología · 10–12 años
+29/10/2026, 12:45:33
+
+PREGUNTA
+Con la misma fuerza, ¿cómo cambia la aceleración al aumentar la masa?
+
+MI PRIMERA IDEA
+Aumenta la aceleración
+MI PREDICCIÓN REVISADA
+Disminuye la aceleración
+
+MIS ENSAYOS TERMINADOS
+N.º | Masa (t) | Empuje (kN) | Peso (kN) | Fuerza neta (kN) | a inicial (m/s²) | ¿Puede subir?
+1 | 20 | 500 | 196 | 304 | 15,19 | Sí
+2 | 40 | 500 | 392 | 108 | 2,69 | Sí
+
+MI CONCLUSIÓN
+Disminuye la aceleración
+
+MI EXPLICACIÓN
+Cambié la masa y mantuve la misma fuerza máxima. La aceleración inicial fue menor con el robot más pesado.
+
+PIEZAS EXPLORADAS
+Compuertas, Elevador, Robot Brezo
+
+PARTICIPACIÓN
+Secuencia completada. Pendiente de evaluación docente de la explicación.
+
+MODELO
+Fuerza neta = empuje − peso; a = fuerza neta / m = F/m − 9,81. Masa y fuerza son parámetros hipotéticos. La animación reproduce la aceleración calculada hasta 16 m/s² y frena a 3 m/s²; recorrido de 9 m.
+Compuertas: HIPOTESIS_DE_INGENIERIA. Robot Brezo: DISENO_ORIGINAL. Ensayos y sello: RECURSO_DIDACTICO.
+Colisiones mediante envolventes rectangulares; agua y lluvia son efectos visuales.
+
+PARA CONVERSAR EN CLASE
+¿Qué mantuviste igual? ¿Qué dato apoya tu conclusión? Si la masa se duplica, ¿la aceleración se reduce a la mitad? ¿Qué papel tiene el peso? ¿Qué harías para poner a prueba otra explicación?

@@ -1,0 +1,14 @@
+{
+  "name": "la03-laboratorio-atlantico",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Compilación local del Laboratorio Atlántico (LA-03.0)",
+  "scripts": {
+    "build": "node build.cjs",
+    "test": "node app/core.test.mjs && node app/extension.test.mjs && node app/mission.test.mjs && node app/robot.test.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  },
+  "type": "module"
+}
